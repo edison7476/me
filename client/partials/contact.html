@@ -2,31 +2,22 @@
 <link rel="stylesheet" href="../stylesheet/CornerAnimatedShareButton.css" media="screen" title="no title" charset="utf-8">
 
 <style>
-    body{
-      height: auto;
-    }
+
     .help-block {
         color: red;
     }
-    /*.contactForm {
-        background: rgba(0, 0, 0, .3);
-        padding: 5px;
-    }*/
     .smallIcons img{
        background-color: black;
        border-radius: 10px;
        height: 48px;
        width: 48px;
     }
-    .contactForm{
-
-    }
     .line {
         border: 2px solid #D14040;
     }
 </style>
 
-<body>
+
 <div style=" padding: 10px 50px 0 50px">
 <div class="row" style="font-family: Comic Sans MS, cursive, sans-serif; font-size:140%; padding-left: 30px">
   <h1>Contact Me</h1>
@@ -73,7 +64,7 @@
                 <input type="email" class="form-control" id="email" name="email" placeholder="Your E-mail *" ng-model="email.address" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required>
                 <span ng-show="emailForm.email.$touched && emailForm.email.$error.required && !emailForm.$submitted" class="help-block">Email field is required</span>
                 <!-- <span ng-show="emailForm.email.$touched && emailForm.email.$error.email " class="help-block" > erroe.emal Not valid email! Please enter a valid email.</span> -->
-                <span ng-show="emailForm.email.$touched && emailForm.email.$error.pattern " class="help-block" >Not a valid email! Please enter a valid email.</span>
+                <span ng-show="emailForm.email.$touched && emailForm.email.$error.pattern&& !emailForm.$submitted " class="help-block" >Not a valid email! Please enter a valid email.</span>
             </div>
             <!--Subject Field-->
             <div class="form-group" ng-class="{ 'has-error': emailForm.subject.$dirty && emailForm.subject.$error.required }">
@@ -124,5 +115,3 @@
     </div>
   </div>
 </div>
-
-</body>
