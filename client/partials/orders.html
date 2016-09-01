@@ -1,0 +1,42 @@
+
+  <body >
+    <div ng-controller="FriendsController">
+
+    <div ng-controller="OrdersController" style="padding: 0 40px">
+      <h3>Orders History</h3>
+      <hr>
+      <div class="row" style="padding: 0 20px;">
+
+      <input class="form-control"  style="width: 50%" type="text" ng-model="filter_name" placeholder="Search order history by customer name or product name ">
+    </div>
+  <br>
+    <table class="table table-hover" style="text-align: center">
+      <tr >
+        <td> First Name</td>
+        <td> Last Name</td>
+        <td> Product Name</td>
+        <td> Price </td>
+        <td> Quantity </td>
+        <td>Total</td>
+        <td >Date</td>
+        <td>Order Number</td>
+        <td ng-if="user[0].level === 'admin' ">Action</td>
+      </tr>
+      <tr ng-repeat="order in orders | filter: filter_name" style="text-align: center">
+        <td>{{order.firstName}}</td>
+        <td>{{order.lastName}}</td>
+        <td>{{order.productName}}</td>
+        <td>{{order.productPrice}}</td>
+        <td >{{order.qty}}</td>
+        <td >{{order.qty * order.productPrice | number: 2}}</td>
+        <td>{{ order.createdAt|date:"MM/dd/yyyy 'at' h:mma" }}</td>
+        <td>{{order._id}}</td>
+        <td ng-if="user[0].level === 'admin' ">
+          <form>
+            <input class="btn btn-danger" type="button" value="Remove" ng-click=remove(order)>
+          </form>
+        </td>
+      </table>
+    </div>
+  </div>
+  </body>

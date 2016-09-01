@@ -1,0 +1,380 @@
+<style media="screen">
+    .main .container {
+        padding: 0 0
+    }
+
+    .table {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 10px 0;
+    }
+
+    .tablerow {
+        display: table-row
+    }
+
+    .col {
+        display: table-cell;
+        background-color: white;
+        padding: 0 30px;
+    }
+
+    .col.sidebar {
+        width: 18%;
+        background-color: #272323;
+        z-index: -1;
+    }
+
+    .floating-box {
+        float: left;
+        margin: 10px;
+        /*border: 3px solid #958D8D;*/
+        /*border: 3px solid #D14040;*/
+        padding: 0 10px;
+        box-shadow: 10px 10px 5px #888888;
+        border-radius: 10px;
+        /*background: rgba(226, 226, 226, 1);
+        background: -moz-linear-gradient(left, rgba(226, 226, 226, 1) 0%, rgba(209, 209, 209, 1) 0%, rgba(219, 219, 219, 1) 24%, rgba(254, 254, 254, 1) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(226, 226, 226, 1)), color-stop(0%, rgba(209, 209, 209, 1)), color-stop(24%, rgba(219, 219, 219, 1)), color-stop(100%, rgba(254, 254, 254, 1)));
+        background: -webkit-linear-gradient(left, rgba(226, 226, 226, 1) 0%, rgba(209, 209, 209, 1) 0%, rgba(219, 219, 219, 1) 24%, rgba(254, 254, 254, 1) 100%);
+        background: -o-linear-gradient(left, rgba(226, 226, 226, 1) 0%, rgba(209, 209, 209, 1) 0%, rgba(219, 219, 219, 1) 24%, rgba(254, 254, 254, 1) 100%);
+        background: -ms-linear-gradient(left, rgba(226, 226, 226, 1) 0%, rgba(209, 209, 209, 1) 0%, rgba(219, 219, 219, 1) 24%, rgba(254, 254, 254, 1) 100%);
+        background: linear-gradient(to right, rgba(226, 226, 226, 1) 0%, rgba(209, 209, 209, 1) 0%, rgba(219, 219, 219, 1) 24%, rgba(254, 254, 254, 1) 100%);
+        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1);*/
+
+        /*background: rgba(226,226,226,1);
+        background: -moz-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(226,226,226,1)), color-stop(50%, rgba(219,219,219,1)), color-stop(51%, rgba(209,209,209,1)), color-stop(100%, rgba(254,254,254,1)));
+        background: -webkit-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+        background: -o-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+        background: -ms-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+        background: linear-gradient(to bottom, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=0 );*/
+    }
+    /*.outerBox{
+			border: 3px solid #D14040;
+			border-radius: 6%;
+		}*/
+
+    .title {
+        margin-top: 3px;
+        font-family: cuprum;
+        /*font-family: economica;*/
+        font-family: Trebuchet MS, Helvetica, sans-serif
+    }
+
+    .timeline {
+        font-family: Trebuchet MS, Helvetica, sans-serif
+    }
+
+    .languageIcon img {
+        height: 100px;
+        width: 100px;
+        display: inline-block;
+    }
+
+    .languageIcon img {
+        margin: 3px;
+    }
+
+    .line {
+        border: 2px solid #D14040;
+        /*box-shadow: 5px 5px 5px #888888;*/
+    }
+
+    .contentBox {
+        background: rgba(0, 0, 0, .3);
+        padding: 5px;
+        font-size: 140%;
+        font-family: verdana;
+    }
+
+    .profileContent {
+        color: white;
+    }
+
+    .sideBanner {
+        background-image: url("../photos/sideBanner3.gif");
+        /*background-color: black;*/
+        background: url("http://www.bradysammons.com/codepen/darkui/noise.png") repeat;
+        background-repeat: no-repeat;
+    }
+
+    .sidebarImg {
+        z-index: -1;
+        margin-top: auto;
+        margin-bottom: auto;
+        bottom: 10px;
+        left: 0;
+        position: absolute;
+        /*width: 99%;*/
+    }
+
+    .name_content {
+        vertical-align: top;
+        border: 1px solid grey;
+        /*background-image: url("../photos/sky2..gif");*/
+    }
+
+    .textContent {
+        font-family: Verdana;
+    }
+
+    #selfy {
+        width: 90%;
+        border-radius: 100%;
+        margin-left: 15px;
+    }
+    /*shine Elements*/
+
+    .icon:after {
+        content: "";
+        position: absolute;
+        top: -110%;
+        left: -210%;
+        width: 200%;
+        height: 200%;
+        opacity: 0;
+        transform: rotate(30deg);
+        background: rgba(255, 255, 255, 0.13);
+        background: linear-gradient( to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0.0) 100%);
+    }
+    /* Hover state - trigger effect */
+
+    .icon:hover:after {
+        opacity: 1;
+        top: -30%;
+        left: -30%;
+        transition-property: left, top, opacity;
+        transition-duration: 0.7s, 0.7s, 0.15s;
+        transition-timing-function: ease;
+    }
+    /* Active state */
+
+    .icon:active:after {
+        opacity: 0;
+    }
+    .fa a{
+      color: white;
+      text-decoration: none;
+    }
+    /*.fa-linkedin{
+
+      max-width: inherit;
+      max-height: inherit;
+      border-radius: 100px;
+    }*/
+</style>
+<link rel="stylesheet" href="../stylesheet/CornerAnimatedShareButton.css" media="screen" title="no title" charset="utf-8">
+
+<body>
+
+
+    <div class="table">
+        <div class="tablerow">
+            <!-- <div class="col-xs-6 col-md-3"> -->
+            <div class="col sidebar" style="padding: 10px; position: relative;">
+                <img id="selfy" src="../photos/img_edisonWang.jpg">
+                <div class="profileContent">
+                    <h4 class="contentBox">
+                      <!-- "I worked on my weaknesses and made them my strengths." —Sydney Leroux -->
+                    <em><p style="font-family: cursive; font-size:120%";>  “Failure will never overtake me if my determination to succeed is strong enough.” </em>
+											- Og Mandino
+                    </p>
+                    </h4>
+                    <!-- <h4 class="contentBox">
+                      I am a responsible, team-oriented and highly energetic self-starter currently seeking a full-time position at a challenging professional environment where allows me to utilize my quantitative analytical and programming skills to deliver valuable contributions to the company.
+                        As a quick learner with a high attention to detail I enjoy challenges, solving problems, and always seeking a way to deliver best possible User-Experience.
+                    </h4> -->
+
+
+                    <h4 class="contentBox">
+                    I am a responsible, team-oriented and highly energetic full-stack developer enjoy in building both front-end and back-end applications and developing algorithms.
+                    As a quick learner with a strong work ethic and exceptional quantitative and analytic skills,
+                    I am capable to constantly provide the fuel of motivation to meet challenges along with a positive attitude,
+                    tackle problems efficiently, and deliver best possible User-Experience.
+                    </h4>
+
+                    <br>
+                    <br>
+
+                    <!-- <div class="contentBox ">
+                        <img src="../photos/nameIcon.png" alt="" style="height: 36px; width: 36px" /> Edison Wang
+                        <br>
+                        <br>
+                        <img src="../photos/phoneIcon1.png" alt="" style="height: 36px; width: 36px" /> (510) 480-9114
+                        <br>
+                        <br>
+                        <img src="../photos/gmailIcon.jpeg" alt="" style="height: 36px; width: 36px" />
+                        <a href="#/contact" style="color: white">Edisonwang@edisonwang.net</a>
+                        <br>
+                        <br />
+                        <img src="../photos/inIcon.png" alt="" style="height: 36px; width: 36px" />
+                        <a href="https://www.linkedin.com/in/edison-wang-funcoding" style="color: white">https://www.linkedin.com/in/edison-wang-funcoding</a>
+                    </div> -->
+
+                    <!-- End of contentBox-->
+
+                </div>
+                <!-- End of profileContent-->
+
+                <div class="sidebarImg">
+                    <img src="../photos/sideBanner3.gif" style="width: 100%" />
+                </div>
+                <!-- End of sidebarImg-->
+
+            </div>
+            <!-- End of sidebar-->
+            <!-- </div> -->
+
+            <!-- <div class="col-xs-12 col-sm-6 col-md-9 col"> -->
+            <div class="col name_content">
+                <!-- content -->
+                <h1 style="font-size: 300%; font-family: fantasy">EDISON  WANG</h1>
+
+                <em style="font-size: 170%; font-family: cursive">Full Stack Developer</em>
+                <div class="line"></div>
+                <!--  ################# Education ################# -->
+
+                <h2>EDUCATION</h2>
+                <div class="Education outerBox">
+                    <div class="row">
+                        <div class="floating-box timeline" style="width: 20%;">
+                            <h4>Aug, 2014 - May, 2016</h4>
+                            <h4>Berkeley, CA</h4>
+                        </div>
+
+                        <div class="floating-box" style="width: 75%; ">
+                            <h3 class="title" style="margin-top: 3px">University of California, Berkeley</h3>
+                            <h4 class="textContent">Bachelor, Applied Mathematics</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="floating-box timeline" style="width: 20%">
+                            <h4>Apr, 2016 - July, 2016</h4>
+                            <h4>San Jose, CA</h4>
+                        </div>
+
+                        <div class="floating-box textContent" style="width: 75%; ">
+                            <h3 class="title">Coding Dojo</h3>
+                            <h4>An intensive, rigorous and comprehensive full-stack software development training programs to meet the career goals of both aspiring developers and industry veterans. Students are expected to spend, on average, a minimum of 80 hours per week during the program. Upon completion of the program, students will master the web fundamental and software development from client side to database in 3 full stacks.</h4>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--  ################# Experience ################# -->
+                <div class="Experience">
+                    <h2>EXPERIENCE</h2>
+                    <div class="row">
+                        <div class="floating-box timeline" style="width: 20%">
+
+                            <h4>May 2015 - Dec 2015</h4>
+                            <h4>Berkeley, CA</h4>
+                        </div>
+
+
+                        <div class="floating-box" style="width: 75%;">
+                            <h3 class="title">Econ One Research</h3>
+                            <h4>Intern</h4>
+                            <h4 class="textContent">
+                      					<ul>
+																	<li>Coded nested loops in Excel VBA to analyze 300,000+ inputs in RMBS models and record modeled results.</li>
+																	<!-- <li>Created an Excel VBA program to examine RMBS model results with thousands of observations.</li> -->
+                                  <li>Created an Excel VBA program to examine 300,000+ RMBS modeled results.</li>
+                                  <li>Assisted in the production of expert reports, primarily through the generation of exhibits and appendices to synthesize complex sets of information.&nbsp;</li>
+                                  <li>Aggregated numerous disparate data sources into standardized data set.&nbsp;</li>
+                              </ul>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="floating-box timeline" style="width: 20%">
+
+                            <h4>Apr 2012 - Nov 2014</h4>
+                            <h4>Fremont, CA</h4>
+                        </div>
+
+
+                        <div class="floating-box" style="width: 75%;">
+                            <h3 class="title">Berkeley Academy</h3>
+                            <h4>Mathematics Tutor</h4>
+                            <h4 class="textContent">
+                                                  <ul>
+                                                    <li>Assisted 30% of students to raise their grades 1 to 2 letter grades by working with students in Algebra II, Trigonometry, Pre-Calculus, and Calculus individually or in groups.</li>
+                                                    <li>Build relationship with clients by offering services that address their individual needs.</li>
+                                                </ul>
+                                                </h4>
+                        </div>
+                    </div>
+                </div>
+                <!--  ################# Skills ################# -->
+
+                <div class="skills">
+                    <h2>Professional Skills & Personal Skills</h2>
+                    <div class="row">
+                        <div class="floating-box languageIcon" style="padding: 5px">
+                            <img src="../photos/pythonIcon.jpeg" alt="" />
+                            <img src="../photos/flaskIcon.jpeg" alt="" />
+                            <img src="../photos/mySQLIcon.png" alt="" />
+                            <img src="../photos/jsIcon2.png" alt="" />
+                            <img src="../photos/cssIcon.jpeg" alt="" />
+                            <img src="../photos/html1.png" alt="" />
+                            <img src="../photos/nodeIcon.png" alt="" />
+                            <img src="../photos/angularIcon.png" alt="" />
+                            <img src="../photos/mongoIcon.jpeg" alt="" />
+                            <img src="../photos/expressIcon.png" alt="" />
+                            <!-- <img src="../photos/socketioIcon.jpeg" alt="" /> -->
+                            <img src="../photos/jQueryIcon.png" alt="" />
+                            <img src="../photos/bootstrapIcon.jpeg" alt="" />
+
+                        </div>
+
+                        <div class="floating-box textContent" style="width: 71%; ">
+                            <h4>Exceptional analytical skills with the talent to pinpoint solutions for issues.</h4>
+                            <h4>Results-driven achiever with planning and organizational skills, along with extreme detail orientation.</h4>
+                            <h4>Productive worker with solid work ethic who exerts best effort in completing duties successfully.&nbsp;</h4>
+                            <h4>Proficient in Microsoft Office - Word, Excel, PowerPoint.</h4>
+                            <h4>Fluent in Chinese Mandarin.</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- content -->
+            <!-- </div> -->
+
+        </div>
+        <!-- <p style='color:#fff;padding:24px;text-align:center;font-family:Arial,sans-serif'>I have created a jquery plugin using the concept in this pen. Do check it out!</p>
+        <a class='ss_btn' href='http://vivek3003.github.io/ferris-wheel-jquery-plugin/' target='_blank'>Implemented as jquery Plugin <i class="fa fa-external-link"></i></a>
+        <a class='ss_btn' href='https://github.com/vivek3003/ferris-wheel-jquery-plugin' target='_blank'>View on Github  <i class="fa fa-github"></i></a> -->
+
+        <div id='ss_menu'>
+
+  <div>
+    <i class="fa fa-linkedin"><a href="https://www.linkedin.com/in/edison-wang-funcoding"><img src="../photos/in2.png" style="max-width:100%; max-height:100px"/></a></i>
+  </div>
+  <div>
+    <i class="fa fa-twitter"><a href="#/contact"><img src="../photos/email1.png" style="max-width:100%; max-height:100px"/></a></i>
+  </div>
+  <div>
+    <i class="fa fa-pinterest">C</i>
+  </div>
+  <div>
+    <i class="fa fa-dribbble">D</i>
+  </div>
+  <div class='menu'>
+    <div class='share' id='ss_toggle' data-rot='180'>
+      <div class='circle'></div>
+      <div class='bar'></div>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+
+</body>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body style="padding: 20px 40px">
+    <div ng-controller="FriendsController">
+      <div class="row" style="padding: 0px 40px">
+      <h3 ><ng-show="user[0] != null">Welcome, {{user[0].firstName}}</h3>
+      </div>
+
+    </div>
+    <div id= 'dashboard' name='dashboard' >
+      <div class="row" style="padding: 20px" >
+        <div ng-controller="ProductsController">
+          <div ng-repeat="product in products | filter: filter_name | orderBy: id |limitTo: 6" class="col-xs-3 col-sm-1.5 col-md-2">
+            <div class="thumbnail" >
+              <a href='#/ministore/products/{{product._id}}'><img src="{{ product.url }}" style="height: 23%"></a>
+              <div class="caption">
+                <h4 class="product_name" style="height: 10%" >{{product.name | uppercase}}</h4>
+                <!-- <p>{{product._id}}</p> -->
+                <p>{{product.price | currency }}/each</p>
+                <p>Qty: {{product.qty}} left</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h4 style="padding: 20px"><a id='check_products'href="#/ministore/products">See more products</a></h4>
+      </div>
+
+
+<div class="row" style="padding: 20px" >
+      <div name="OrdersController"   ng-controller="OrdersController">
+        <div class="row" style="padding: 0 30px">
+          <h3>Recent Orders</h3>
+          <ul>
+            <li ng-repeat="order in orders | filter: filter_name | orderBy: id |limitTo: 5">
+              {{order.firstName}} {{order.lastName}} purchased {{order.productName | uppercase }} Qty: {{ order.qty}}. ({{ order.createdAt|date:"MM/dd/yyyy 'at' h:mma" }})
+            </li>
+          </ul>
+        </div>
+
+      </div>
+<h4 style="padding: 20px"><a href="#/ministore/orders">Check all orders</a></h4>
+</div>
+
+<div class="row" style="padding: 20px" >
+      <div name="FriendsController"ng-controller="FriendsController">
+        <div class="row"  style="padding: 0 30px" >
+          <h3>New Customers</h3>
+          <ul>
+            <li ng-repeat="friend in customers.data | filter: filter_name | orderBy: id |limitTo: 5 " >
+              {{friend.firstName}} {{friend.lastName}} joined the store. ({{ friend.createdAt| date:"MM/dd/yyyy 'at' h:mma" }})
+            </li>
+          </ul>
+        </div>
+        <h4 style="padding: 20px"><a href="#/ministore/orders">Check all customers</a></h4>
+      </div>
+
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<body>
+    <div class="container">
+        <div ng-controller='ProductsInfoController'>
+            <div class="row">
+                <div class="col-xs-8 col-sm-5 col-md-5">
+                    <div class="thumbnail">
+                        <img src="{{ product.url }}" style="height:45%">
+                        <!-- <p style="color:red">{{product._id}}</p> -->
+                        <div class="caption">
+                            <h3 class="product_name">{{product.name | uppercase}}</h3>
+                            <p>{{product.price | currency }}/each</p>
+                            <p>Qty: {{product.qty}} left</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div lass="col-xs-8 col-sm-5 col-md-5" ng-controller="OrdersController">
+                    <h3 class="product_name">{{product.name | uppercase}}</h3>
+                    <h3>Price: <span style="color:red">{{product.price | currency }}</span></h3>
+                    <h3>Qty: {{product.qty}} left</h3>
+                    <h3 style="color:green">FREE Shipping on orders over $49</h3>
+
+                    <!-- {{ friends}}
+                    <br>
+                    {{product.name}}
+                    <br> -->
+                    <form ng-show="friends[0].level === 'user' " >
+                        <br>
+                        <!-- <select ng-model='new_order.customerFirstName'
+                                ng-options = "customer.value as friend.firstName for friend in friends" + "customer.value as friend.lastName for friend in friends">
+                        </select><br>
+                        <select ng-model='new_order.customerLastName'
+                                ng-options = "customer.value as friend.lastName for friend in friends">
+                        </select><br> -->
+
+                        <!-- Product Name:
+                        <select ng-model='new_order.product'
+                                ng-options = "product.value as product.name for product in products ">
+                             <option  value="{{product.name}}">{{product.name}}</option>
+                        </select><br> -->
+
+                        <!-- Customer Name:
+                        <select ng-model='new_order.customer'>
+                            <option ng-repeat='customer in friends' value="{{customer.firstName}} {{customer.lastName}}">{{customer.firstName}} {{customer.lastName}}</option>
+                        </select><br> -->
+
+                        <!-- Product Name:
+                        <select ng-model='new_order.product'>
+                            <option ng-repeat='product in products' value="{{product.name}}">{{product.name}}</option>
+                        </select><br> -->
+
+                        <!--
+                        <input type="text" name="name" ng-model="new_order.customer" ng-init="new_order.customer = {{friends[0].firstName}} {{friends[0].lastName}} ">
+                        <input type="text" name="name" ng-model="new_order.product" ng-init="new_order.product= '{{product.name}}' " > -->
+
+                        <br>
+                        <label>
+                            <h4>Quantity:</h4></label>
+                        <input name="order_qty" type="number" ng-model='new_order.qty' min='1' required>
+                        <br>
+                        <input class="btn btn-primary" type="submit" value="Place Order" ng-click="order(friends[0], product, new_order.qty)">
+                        <br>
+                        <h3 style="color: red;">{{ orderMsg }}</h3>
+                    </form>
+
+                    <div ng-controller="ProductsController" style="padding:0 20px">
+                        <div class="row" ng-show="friends[0].level === 'admin' ">
+                            <hr>
+                            <form name='editProductForm'>
+
+                                    <h4>Product Name: </h4>
+                                    <input class="form-control" style="width: 30%" name='name' type="text" ng-model="product.name" placeholder="Product name must be at least 3 characters long" minlength='3' required>
+
+                                    <h4>Price: </h4>
+                                    <input class="form-control" style="width: 30%" name="price"  ng-model="product.price"
+                                    min = "0.01"
+                                     placeholder="Price must be at least $0.01 "  required>
+
+                                    <h4>Quantity:</h4>
+                                    <input class="form-control" style="width: 30%" name="qty" type="number" ng-model="product.qty" placeholder="Quantity must be at least 1" min='1' required>
+
+                                    <h4>Image (URL): </h4>
+                                    <input style="width: 30%" class="form-control" name="img_url" ng-model='product.url' placeholder="http://">
+                                <br />
+                                <input id='addproduct' class="btn btn-primary" type="submit" value="Edit Prodcut Information" ng-click="editProduct(product)">
+                            </form>
+                            <hr>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row" ng-controller="OrdersController">
+                <div class="container">
+                    <h3><label for="">Product Review</label></h3>
+
+                    <form ng-if="friends[0].level === 'user' ">
+                        <textarea class="form-control" rows="5" ng-model="review.text"></textarea>
+                        <br>
+                        <input class="btn btn-success" type="submit" name="name" value="Submit Review" style="float: right" ng-click="submitReview(friends[0], product, review.text)">
+                    </form>
+                    <br>
+
+                    <div class="" ng-repeat="reviewInfo in product.reviews | orderBy: '': true">
+
+                        <h4>{{ reviewInfo.reviewText}}</h4>
+                        <h5>By {{ reviewInfo.customerName}}</h5>
+                        <hr>
+                    </div>
+                    <!-- {{ friends }}
+                    <br>
+                    {{ product }}
+                    <br> -->
+                </div>
+            </div>
+
+
+
+
+
+            <!-- <div class="row" style="padding:30px 60px">
+              <div class="col-xs-9 col-sm-5 col-md-6" >
+                <div class="thumbnail" style="height:50%; width:50%">
+                    <img src="{{ product.url }}" style="max-height:100%; max-width:100%">
+                </div>
+              </div>
+
+              <div class="col-xs-9 col-sm-5 col-md-6" >
+                    <h3 class="product_name">{{product.name | uppercase}}</h3>
+                    <h3>Price: <span style="color:red">{{product.price | currency }}</span></h3>
+                    <h3>Qty: {{product.qty}} left</h3>
+                    <h3 style="color:green">FREE Shipping on orders over $49</h3>
+              </div>
+            </div> -->
+
+        </div>
+    </div>
+</body>

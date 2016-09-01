@@ -1,0 +1,128 @@
+<link rel="stylesheet" href="../stylesheet/sending.css">
+<link rel="stylesheet" href="../stylesheet/CornerAnimatedShareButton.css" media="screen" title="no title" charset="utf-8">
+
+<style>
+    body{
+      height: auto;
+    }
+    .help-block {
+        color: red;
+    }
+    /*.contactForm {
+        background: rgba(0, 0, 0, .3);
+        padding: 5px;
+    }*/
+    .smallIcons img{
+       background-color: black;
+       border-radius: 10px;
+       height: 48px;
+       width: 48px;
+    }
+    .contactForm{
+
+    }
+    .line {
+        border: 2px solid #D14040;
+    }
+</style>
+
+<body>
+<div style=" padding: 10px 50px 0 50px">
+<div class="row" style="font-family: Comic Sans MS, cursive, sans-serif; font-size:140%; padding-left: 30px">
+  <h1>Contact Me</h1>
+  <h4>
+    Please fill in the information before sending
+  </h4>
+</div>
+  <hr>
+  <div class="col-xs-6 col-sm-4 col-md-5 smallIcons" style="font-family: Comic Sans MS, cursive, sans-serif; font-size:140%">
+
+    <img src="../photos/personBlackIcon.png" alt="" /> Edison Wang
+    <br>
+    <br>
+    <img src="../photos/phoneBlackIcon.png" alt="" /> (510) 480-9114
+    <br>
+    <br>
+    <img src="../photos/emailIconBlack.png" alt="" />
+    Edisonwang@edisonwang.net
+    <br>
+    <br />
+    <img src="../photos/inBlackIcon2.png" alt=""  />
+    <a href="https://www.linkedin.com/in/edison-wang-funcoding" style="color: black" >https://www.linkedin.com/in/edison-wang-funcoding</a>
+    <br>
+    <br>
+  </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-7 contactForm" ng-controller="FriendsController" style="font-family: Comic Sans MS, cursive, sans-serif">
+        <!-- <h2 sytle="margin: auto">Contact Me</h2>
+        <h4>
+          Please fill in the information before sending email
+        </h4>
+        <br> -->
+        <form name="emailForm" ng-submit="sendEmail()" role="form" style="font-size: 140%">
+            <!--Name Field-->
+            <div class="form-group" ng-class="{ 'has-error': emailForm.name.$dirty && emailForm.name.$error.required }">
+                <label for="exampleInputName">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name *" ng-model="email.sender" required>
+                <span ng-show="emailForm.name.$touched && emailForm.name.$error.required && !emailForm.$submitted" class="help-block">Name filed is required</span>
+                <!-- <span ng-show="emailForm.$submitted && emailForm.name.$error.required " class="help-block" style="color: green"> </span> -->
+            </div>
+            <!--Email Field-->
+            <div class="form-group" ng-class="{ 'has-error': emailForm.email.$dirty && emailForm.email.$error.required }">
+                <label for="exampleInputEmail">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Your E-mail *" ng-model="email.address" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required>
+                <span ng-show="emailForm.email.$touched && emailForm.email.$error.required && !emailForm.$submitted" class="help-block">Email field is required</span>
+                <!-- <span ng-show="emailForm.email.$touched && emailForm.email.$error.email " class="help-block" > erroe.emal Not valid email! Please enter a valid email.</span> -->
+                <span ng-show="emailForm.email.$touched && emailForm.email.$error.pattern " class="help-block" >Not a valid email! Please enter a valid email.</span>
+            </div>
+            <!--Subject Field-->
+            <div class="form-group" ng-class="{ 'has-error': emailForm.subject.$dirty && emailForm.subject.$error.required }">
+                <label for="exampleInputSubject">Subject</label>
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject *" ng-model="email.subject" required>
+                <span ng-show="emailForm.subject.$touched && emailForm.subject.$error.required && !emailForm.$submitted" class="help-block">Subject field is required</span>
+                <!-- <span ng-show="emailForm.$submitted && emailForm.subject.$error.required " class="help-block" style="color: green"> </span> -->
+            </div>
+            <!--Message Field-->
+            <div class="form-group" ng-class="{ 'has-error': emailForm.textArea.$dirty && emailForm.textArea.$error.required }">
+                <label for="exampleInputMessage">Message</label>
+                <textarea name="textArea" class="form-control" rows="6" placeholder="Message *" ng-model="email.message" required></textarea>
+                <span ng-show="emailForm.textArea.$touched && emailForm.textArea.$error.required && !emailForm.$submitted" class="help-block">Message field is required</span>
+                <span ng-show="emailForm.$submitted && emailForm.textArea.$error.required " class="help-block" style="color: green">Sending... </span>
+            </div>
+
+            <br>
+            <br>
+
+            <button name="sendEmail" type="submit" ng-disabled="emailForm.$invalid" class="send">
+                <div class="text">SEND</div>
+                <div class="loader"></div>
+                <div class="done" name="done">SUCCESS</div>
+            </button>
+        </form>
+        <h4>* The send button is disabled when form fields are missing or invalid</h4>
+    </div>
+</div>
+
+<div id='ss_menu' class="no-print">
+
+  <div>
+    <i class="fa fa-linkedin"><a href="https://www.linkedin.com/in/edison-wang-funcoding"><img src="../photos/in2.png" style="max-width:95%; max-height:95%"/></a></i>
+  </div>
+  <div>
+    <i class="fa fa-twitter"><a href="#/contact"><img src="../photos/email1.png" style="max-width:95%; max-height:97%"/></a></i>
+  </div>
+  <div>
+    <i class="fa fa-pinterest"><a href="https://github.com/edison7476"><img src="../photos/githubIcon4.png" style="max-width:95%; max-height:95%; "/></a></i></i>
+  </div>
+  <div>
+    <i class="fa fa-dribbble"><a href="#/resume"><img src="../photos/resumeIcon.png" style="max-width:95%; max-height:95%; "/></a></i>
+  </div>
+  <div class='menu'>
+    <div class='share' id='ss_toggle' data-rot='180'>
+      <div class='circle'></div>
+      <div class='bar'></div>
+    </div>
+  </div>
+</div>
+
+</body>

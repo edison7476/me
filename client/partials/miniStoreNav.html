@@ -1,0 +1,53 @@
+<!--  navigation bar for the mini store project-->
+<style media="screen">
+.rainbow {
+background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.45, #2ff), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+color:transparent;
+-webkit-background-clip: text;
+background-clip: text;
+}
+</style>
+<div class="row" style="padding:0 8px; ">
+    <!-- <div class="navbar-wrapper "> -->
+    <nav class="navbar navbar-inverse navbar-static-top " style="; padding: auto; margin-bottom:10px;">
+        <!-- <div class="container"> -->
+
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="background-color:blue;">
+                <span class="sr-only" >Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand "  style="font-size:260%;  margin-top:10px">
+              <!-- <span class="glyphicon glyphicon-home" aria-hidden="true"></span> -->
+              <span class="rainbow">Mini Store</span>
+            </a>
+
+
+            <!-- <a ng-if="user[0] == null " class="navbar-brand " href="#/ministore/loginMethod" style="font-size:160%; font-family: Comic Sans MS, cursive, sans-serif">
+              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+              Home</a> -->
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav" style="font-size:160%; font-family: Comic Sans MS, cursive, sans-serif; ">
+              <li ng-if="user[0].level == null"><a href="#/ministore/loginMethod"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Login</a></li>
+
+                <li ng-if="user[0].level === 'admin'"><a href="#/ministore/home"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>Dashboard</a></li>
+
+                <li ng-if="user[0] != null && user[0].level === 'admin' "><a href="#/ministore/customers"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Customers</a></li>
+
+                <li ><a href="#/ministore/products"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Products</a></li>
+
+                <li ng-if="user[0] != null "><a href="#/ministore/orders"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Orders</a></li>
+
+                <li style="float:right"><a href="#/"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>Portfolio</a></li>
+            </ul>
+            <h3 ng-if="user[0] != null "><a style="float: right; margin-right:7%; color:white; " href="/ministore/logout">Log Out</a></h3>
+        </div>
+        <!-- </div> -->
+    </nav>
+</div>

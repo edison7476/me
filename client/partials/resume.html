@@ -1,0 +1,627 @@
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../stylesheet/CornerAnimatedShareButton.css" media="screen" title="no title" charset="utf-8">
+
+	<style type="text/css">
+		@font-face {
+			font-family: Garamond;
+			src: url("/css/fonts/garreg-webfont-eot");
+			src: url("/css/fonts/garreg-webfont.svg");
+			src: url("/css/fonts/garreg-webfont.ttf");
+			src: url("/css/fonts/garreg-webfont.wotf");
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: Garamond;
+			src: url("/css/fonts/gari-webfont-eot");
+			src: url("/css/fonts/gari-webfont.svg");
+			src: url("/css/fonts/gari-webfont.ttf");
+			src: url("/css/fonts/gari-webfont.wotf");
+			font-weight: normal;
+			font-style: italic;
+		}
+
+		@font-face {
+			font-family: Garamond;
+			src: url("/css/fonts/garb-webfont-eot");
+			src: url("/css/fonts/garb-webfont.svg");
+			src: url("/css/fonts/garb-webfont.ttf");
+			src: url("/css/fonts/garb-webfont.wotf");
+			font-weight: bold;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: Garamond;
+			src: url("/css/fonts/garbi-webfont-eot");
+			src: url("/css/fonts/garbi-webfont.svg");
+			src: url("/css/fonts/garbi-webfont.ttf");
+			src: url("/css/fonts/garbi-webfont.wotf");
+			font-weight: bold;
+			font-style: italic;
+		}
+
+		body {
+			/*font-size: 0.8em;*/
+			line-height: 1;
+			margin: 0;
+			padding: 0;
+			color: black;
+			background: white;
+		}
+
+		p {
+			margin: .5em 0;
+		}
+
+		ul {
+			padding-left: 0;
+			margin: 0 0 .5em 0;
+		}
+
+		li {
+			padding-left: 0;
+			margin-left: 1.5em;
+		}
+
+		table {
+			border: none;
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+
+		td {
+			vertical-align: top;
+			text-align: left;
+		}
+
+		/*table,
+		tr,
+		td {
+			font-size: inherit;
+		}*/
+		/* FONTS */
+
+		.bodoni {
+			font-family: "Bodoni MT", "Times New Roman", Times, serif;
+		}
+
+		.courier {
+			font-family: "Courier New", Courier, sans-serif;
+		}
+
+		.georgia {
+			font-family: Georgia, "Times New Roman", Times, serif;
+		}
+
+		.helvetica {
+			font-family: Helvetica, Arial, sans-serif;
+		}
+
+		.times {
+			font-family: "Times New Roman", Times, serif;
+		}
+
+		.trebuchet {
+			font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+		}
+
+		.verdana {
+			font-family: Verdana, Geneva, sans-serif;
+		}
+
+		.simsun {
+			font-size: 10pt;
+			font-family: simsun;
+		}
+
+		.garamond {
+			font-family: "Garamond", "Times New Roman", Times, serif;
+		}
+		/* FONT SIZES */
+
+		.sevenpt {
+			font-size: 7pt;
+		}
+
+		.eightpt {
+			font-size: 8pt;
+		}
+
+		.ninept {
+			font-size: 9pt;
+		}
+
+		.tenpt {
+			font-size: 10pt;
+		}
+
+		.elevenpt {
+			font-size: 11pt;
+		}
+
+		.twelvept {
+			font-size: 12pt;
+		}
+
+		.fourteenpt {
+			font-size: 14pt;
+		}
+
+		.sixteenpt {
+			font-size: 16pt;
+		}
+
+		.eighteenpt {
+			font-size: 18pt;
+		}
+
+		.twentypt {
+			font-size: 20pt;
+		}
+
+		.twenty2pt {
+			font-size: 22pt;
+		}
+
+		.twenty4pt {
+			font-size: 24pt;
+		}
+		/* LINE HEIGHTS */
+
+		.one {
+			line-height: 100%;
+		}
+
+		.one25 {
+			line-height: 125%;
+		}
+
+		.one5 {
+			line-height: 150%;
+		}
+
+		.one75 {
+			line-height: 175%;
+		}
+
+		.two {
+			line-height: 200%;
+		}
+		/* BULLET TYPES */
+
+		.bullet-none {
+			list-style-type: none;
+		}
+
+		.bullet-square {
+			list-style-type: square;
+		}
+
+		.bullet-circle {
+			list-style-type: circle;
+		}
+
+		.bullet-disc {
+			list-style-type: disc;
+		}
+		/* FONT STYLES */
+
+		.normal {
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		.bold {
+			font-weight: bold;
+			font-style: normal;
+		}
+
+		.italic {
+			font-weight: normal;
+			font-style: italic;
+		}
+
+		.bold-italic {
+			font-weight: bold;
+			font-style: italic;
+		}
+		/* ALIGNMENT */
+
+		.right {
+			text-align: right !important;
+		}
+
+		.left {
+			text-align: left !important;
+		}
+
+		.center {
+			text-align: center !important;
+		}
+		/* BORDER TYPES */
+
+		.border-bottom-none {
+			border-bottom: none;
+		}
+
+		.border-bottom-thin {
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		.border-bottom-thick {
+			border-bottom-width: 1pt;
+			border-bottom-style: solid;
+		}
+
+		.border-bottom-dashed {
+			border-bottom-width: 1px;
+			border-bottom-style: dashed;
+		}
+
+		.border-bottom-dotted {
+			border-bottom-width: 1px;
+			border-bottom-style: dotted;
+		}
+		/* BORDER COLORS */
+
+		.border-color-none {
+			border-color: #fff;
+		}
+
+		.border-color-black {
+			border-color: #000;
+		}
+
+		.border-color-gray {
+			border-color: #666;
+		}
+
+		.border-color-ltgray {
+			border-color: #CCC;
+		}
+
+		.border-color-dkgray {
+			border-color: #333;
+		}
+
+		.resume_section_last,
+		.resume_subsection_last {
+			border-bottom: none !important;
+		}
+
+		body {
+			font-family: "Times New Roman", Times, serif;
+		}
+
+		h1 {
+			margin: 0;
+			font-weight: bold;
+		}
+
+		h2 {
+			padding: 0 0 .2em 0;
+			margin: 0;
+			border-bottom: 1px solid #000;
+			font-weight: bold;
+		}
+
+		.resume_gpa {
+			font-weight: bold;
+			font-style: italic;
+		}
+
+		.contact_info {}
+
+		.resume_personalinfo {
+			border-bottom: none;
+			padding-bottom: 0em;
+			margin-top: 0;
+			margin-bottom: 1.8em;
+		}
+
+		.resume_section {
+			margin-bottom: .365em;
+			padding-bottom: .365em;
+		}
+
+		.resume_section_last {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+
+		.resume_section_first {}
+
+		.resume_quadrants {
+			width: 100%;
+			border: none;
+			border-spacing: 0;
+			border-collapse: collapse;
+		}
+
+		.resume_contact_cell {
+			text-align: right;
+		}
+
+		.resume_contact {
+			margin-bottom: .3em;
+		}
+
+		.resume_quad1,
+		.resume_quad3 {
+			text-align: left;
+			vertical-align: top;
+			padding: 0;
+		}
+
+		.resume_quad2,
+		.resume_quad4 {
+			text-align: right;
+			vertical-align: top;
+			padding: 0;
+		}
+
+		.resume_role {
+			font-style: italic;
+		}
+
+		.resume_location,
+		.resume_dates {}
+
+		.resume_organization {
+			font-weight: bold;
+		}
+
+		.resume_subsec {}
+
+		.resume_subsec_first {
+			margin-top: .5em;
+		}
+
+		.resume_subsec_last {}
+
+		.resume_subdiv {
+			margin-bottom: .5em;
+		}
+
+		.resume_textblock {}
+	</style>
+	<style type="text/css">
+		#resume_view {
+			/*margin: 0.75in 1.00in 0.75in 1.00in;*/
+			padding: 10px 20px
+		}
+
+		li {
+			line-height: 100%;
+			list-style-type: disc;
+		}
+		.times.twelvept.left.one.bold{
+			margin-top: -5px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="resume_view">
+		<div id="2808990f04b1e028e99bf460dba5ca84" class="inlineEditable resume_personalinfo left">
+			<h1 id="resume_heading" class="times eighteenpt one25 bold" style="margin-bottom:10px">EDISON WANG</h1>
+			<div class="resume_contact">39819 Wyatt Ln, Fremont, California 94538 United States</div>
+			<div class="resume_contact">(510) 480-9114 | edisonwang@edisonwang.net</div>
+			<div class="resume_contact">My Website: www.edisonwang.net</div>
+			<div class="resume_contact">Linkedin: https://www.linkedin.com/in/edison-wang-funcoding</div>
+		</div>
+		<div id="resume_sections">
+			<div class="inlineEditable resume_section resume_section_first left border-bottom-none border-color-gray one" id="492d4315a57c490362e56ee2513ccc5e" style="margin-top:-15px">
+				<h2 class="times twelvept left one bold">OBJECTIVE</h2>
+				<div class="resume_textblock ">
+					<!-- A responsible, team-oriented and highly energetic self-starter seek a full-time position at a challenging professional environment where allows me to utilize my quantitative analytical and programming skills to deliver valuable contributions to the
+					organization. -->
+					I am a responsible, team-oriented and highly energetic full-stack developer who is passionate in building both front-end and back-end applications and developing algorithms.
+					As a quick learner with a strong work ethic and exceptional quantitative and analytic skills,
+					I am capable to constantly provide the fuel of motivation to meet challenges along with a positive attitude,
+					tackle problems efficiently, and deliver best possible User-Experience.
+				</div>
+			</div>
+			<div class="inlineEditable resume_section left border-bottom-none border-color-gray one" id="27752d6878764cdada0f4035ce4a3d18" style="margin-top:8px">
+				<h2 class="times twelvept left one bold">EDUCATION</h2>
+				<div id="1932bd447e1053957688c833969ef1ea" class="inlineEditable resume_subsec resume_subsec_first resume_subdiv resume_subsec_last">
+					<table cellpadding="0" class="resume_quadrants " style="margin-bottom:1px">
+						<tbody>
+							<tr>
+								<td class="resume_quad1 resume_organization resume_organization_edu">University of California, Berkeley</td>
+								<td class="resume_quad2 resume_location resume_location_edu">Berkeley, CA</td>
+							</tr>
+							<tr>
+								<td class="resume_quad3 resume_role resume_role_edu">Bachelor, Mathematics, Applied
+								</td>
+								<td class="resume_quad4 resume_dates resume_dates_edu">May 2016</td>
+							</tr>
+						</tbody>
+					</table >
+					<!-- <div class="resume_textblock ">
+						<li style="list-style-type:none"><strong>Relevant Coursework:</strong></li>
+						<li>Microeconomics Analysis, Principle of Microeconomics, Principle of Macroeconomics</li>
+						<li>Introduction to Finance, Financial Information Analysis, Introduction to Financial Accounting</li>
+					</div> -->
+
+					<table cellpadding="0" class="resume_quadrants ">
+						<tbody>
+							<tr>
+								<td class="resume_quad1 resume_organization resume_organization_edu">Coding Dojo</td>
+								<td class="resume_quad2 resume_location resume_location_edu">San Jose, CA</td>
+							</tr>
+							<tr>
+								<td class="resume_quad3 resume_role resume_role_edu">Computer Software Engineering
+								</td>
+								<td class="resume_quad4 resume_dates resume_dates_edu">August 2016</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- <div class="resume_textblock ">
+
+						<li style="list-style-type:none"><strong>Coursework:</strong></li>
+						<li>Python, MySQL, Javascript, Angular.js, Node.Js, Express.Js, MongoDB</li>
+						<li>Xcode, Swift, jQuery, HTML, CSS</li>
+					</div> -->
+				</div>
+			</div>
+			<div class="inlineEditable resume_section left border-bottom-none border-color-gray one" id="6e261604cb77d79824f9903d51ab8aaa" style="margin-top:-10px">
+				<h2 class="times twelvept left one bold">PROJECTS</h2>
+				<div class="resume_textblock " style="margin-top:3px">
+
+					<strong>Kastee</strong> - <em>Kastee.com</em>
+					<ul>
+						<li>This is a community social media web application targeted in solving communication issues in communities and building great relationships in your community without losing your online privacy.</li>
+						<li>Created a CRUD RESTful web service with login and registration validation using Python and MySQL.</li>
+						<li>Designed one to many and many to many mySQL database relationships to arrange posts and comments.</li>
+						<li>Implemented Google Places API with one click quick search buttons in the application to display places and their directions nearby the user's location and Open Weather API to provide weather information at the user's current location.</li>
+					</ul>
+					<strong>Forge </strong> - <em>leforge.co</em>
+					<ul>
+						<!-- <li>The web application was developed in 3 days with a team of 3 peers. </li>
+							<li>The app allows user to preview games that are streamed on Twitch by displaying the top streamer
+							 and the matching Amazon product listings of a selected game using Node.js, Express.js, Mongoose.js, Angular, Twitch API and Amazon Product Advertisement API.</li>
+						<li>Responsible for implementing the top streamer functionality and the Amazon product listings.</li> -->
+						<li>This is a game seraching and streaming web application that allows users to search games, preview the selected game playing by the most popular streamer on Twitch, and also display the matching Amazon product listings of a selected game on the site.</li>
+						<li>Working in a team of 3 peers, we accomplished the application from scratch in 3 days using Node.js, Express.js, Mongoose.js, Angular.js, Twitch API, and Amazon Product Advertisement API.</li>
+					</ul>
+
+
+					<!-- <strong>Stock Pitch Group Project</strong>
+					<br>
+					<ul>
+						<li>Evaluated potentially investable companies' fundamentals and performance by scrutinizing financial statements and analyzing business plans.</li>
+						<li>Projected the future earnings and operating expenses over the next 3 years by building a financial model.</li>
+					</ul> -->
+
+					<!-- <strong>Individual Stock Portfolio Competition</strong> - <em>The First Prize in a class of 90 students</em>
+<ul>
+<li>Managed unsystematic risk by combing negatively correlated stocks in the portfolio.&nbsp;</li>
+<li>Protected against systematic risk by constructing market neutral portfolio.&nbsp;</li>
+</ul> -->
+
+					<!-- <strong>Financial Statement Analysis</strong>
+					<br>
+					<ul>
+						<li>Analyzed balance sheets, income statements, and cash flow statements to determine business performance and understand the inflow and outflow of funds.</li>
+						<li>Analyzed companies' financial health and profit efficiency by calculating the financial ratios.</li>
+					</ul> -->
+				</div>
+			</div>
+			<div class="inlineEditable resume_section left border-bottom-none border-color-gray one" id="6ac50c560603205cbacb3cf95891b15b" style="margin-top:-12px">
+				<h2 class="times twelvept left one bold">EXPERIENCE</h2>
+				<div id="e17619394f30137127344bea94e78acb" class="inlineEditable resume_subdiv border-bottom-none border-color-gray">
+					<div id="e17619394f30137127344bea94e78acb" class="inlineEditable resume_subsec resume_subsec_first">
+						<table cellpadding="0" class="resume_quadrants ">
+							<tbody>
+								<tr>
+									<td class="resume_quad1 resume_organization">Econ One Research</td>
+									<td class="resume_quad2 resume_location">Berkeley</td>
+								</tr>
+								<tr>
+									<td class="resume_quad3 resume_role">Intern
+									</td>
+									<td class="resume_quad4 resume_dates">May 2015 - December 2015</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="resume_textblock ">
+							<ul>
+								<li >Coded a program in Excel VBA using loops with control flows to analyze 500,000+ inputs in several RMBS models and record each modeled result with its corresponding inputs.</li>
+								<!-- <li>Created an Excel VBA program to examine RMBS model results with thousands of observations.</li> -->
+								<li >Created an Excel VBA program to examine 500,000+ RMBS modeled results.</li>
+								<li >Assisted in the production of expert reports, primarily through the generation of exhibits and appendices to synthesize complex sets of information.&nbsp;</li>
+								<!-- <li >Aggregated numerous disparate data sources into standardized data set.&nbsp;</li> -->
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="c8c0043474e813f004352966f8f13baa" class="inlineEditable resume_subsec resume_subdiv resume_subsec_last">
+					<table cellpadding="0" class="resume_quadrants ">
+						<tbody>
+							<tr>
+								<td class="resume_quad1 resume_organization">Berkeley Academy</td>
+								<td class="resume_quad2 resume_location">Fremont, CA</td>
+							</tr>
+							<tr>
+								<td class="resume_quad3 resume_role">Mathematics Tutor
+								</td>
+								<td class="resume_quad4 resume_dates">April 2012 - November 2014</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="resume_textblock ">
+						<div>
+							<ul>
+								<li>Assisted 30% of students to raise their grades 1 to 2 letter grades by working with students in Algebra II, Trigonometry, Pre-Calculus, and Calculus individually or in groups.</li>
+								<li>Build relationship with clients by offering services that address their individual needs.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="inlineEditable resume_section left border-bottom-none border-color-gray one" id="f3dea61566ffe510bc3d988011def424">
+				<h2 class="times twelvept left one bold">ACTIVITIES</h2>
+				<div class="resume_textblock ">
+					<div><strong>Individual Investor</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+					<div>Jun. 2012 - Present&nbsp;</div>
+					<div>
+						<ul>
+							<li>Research potentially undervalued equities by analyzing macroeconomics and sector cycles.</li>
+							<li>Performed valuation analysis to various companies by using trading multiples, DDM, and DCF.&nbsp;</li>
+							<li>Forecast future earnings, operating expenses, and cash flows by creating financial models.</li>
+							<li>Managed market risk by constructing market neutral portfolio.</li>
+						</ul>
+						<br>
+					</div>
+				</div>
+			</div> -->
+			<div class="inlineEditable resume_section resume_section_last left border-bottom-none border-color-gray one" id="60217db460e8e9f9cdda74daf9a42eed">
+				<h2 class="times twelvept left one bold">SKILLS</h2>
+				<div class="resume_textblock ">
+					<br>
+					<ul>
+						<li>Javascript, Node.JS, Angular.JS, MongoDB, Python, MySQL, Flask, Swift, Xcode, jQuery, HTML, CSS.</li>
+						<li>Exceptional analytical skills with the talent to pinpoint solutions for issues.</li>
+						<li>Results-driven achiever with planning and organizational skills, along with extreme detail orientation.</li>
+						<li>Productive worker with solid work ethic who exerts best effort in completing duties successfully.&nbsp;</li>
+						<li>Proficient in Microsoft Office - Word, Excel, PowerPoint.</li>
+						<li>Fluent in Chinese Mandarin.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id='ss_menu'>
+
+		<div>
+			<i class="fa fa-linkedin"><a href="https://www.linkedin.com/in/edison-wang-funcoding"><img src="../photos/in2.png" style="max-width:95%; max-height:95%"/></a></i>
+		</div>
+		<div>
+			<i class="fa fa-twitter"><a href="#/contact"><img src="../photos/email1.png" style="max-width:95%; max-height:97%"/></a></i>
+		</div>
+		<div>
+			<i class="fa fa-pinterest"><a href="https://github.com/edison7476"><img src="../photos/githubIcon4.png" style="max-width:95%; max-height:95%; "/></a></i></i>
+		</div>
+		<div>
+			<i class="fa fa-dribbble"><a href="#/resume"><img src="../photos/resumeIcon.png" style="max-width:95%; max-height:95%; "/></a></i>
+		</div>
+		<div class='menu'>
+			<div class='share' id='ss_toggle' data-rot='180'>
+				<div class='circle'></div>
+				<div class='bar'></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!-- <div ng-controller='FriendsController'>
+<div class="col-md-6 col-md-offset-3">
+<h2>Register</h2>
+    <h4 style="color:red">{{error}}</h4>
+
+    <form name="form" ng-submit="userlogin()" role="form">
+
+      <div class="form-group" ng-class="{ 'has-error': form.firstName.$dirty && form.firstNamel.$error.required }">
+          <label for="username">First Name</label>
+          <input type="text" name="firstName" class="form-control" ng-model="new_user.firstName" required />
+          <span ng-show="form.firstName.$touched && form.firstName.$error.required" class="help-block" style="color:red">First Name is required</span>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
+          <label for="username">Last Name</label>
+          <input type="text" name="lastName" class="form-control" ng-model="new_user.lastName" required />
+          <span ng-show="form.lastName.$touched && form.lastName.$error.required" class="help-block" style="color:red">Last Name is required</span>
+      </div>
+
+        <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+            <label for="username">Email</label>
+            <input type="text" name="email" class="form-control" ng-model="new_user.email" required />
+            <span ng-show="form.email.$touched && form.email.$error.required" class="help-block" style="color:red">Email is required</span>
+        </div>
+
+        <div class="form-actions">
+          <input  class="btn btn-primary" type="submit" value="Add" ng-disabled="customerForm.$invalid" ng-click="addfriend()">
+
+        </div>
+    </form>
+
+</div>
+</div> -->
+
+<div ng-controller="FriendsController">
+<!-- {{ user }} -->
+     {{validationError.errors.message}}
+
+<div class="col-xs-8 col-sm-5 col-md-6 ">
+    <h2>Register and Login as Customer</h2>
+  <form name= 'customerForm' style="width:90%">
+<label>First Name:</label>
+  <input class="form-control" name='firstName' type="text" ng-model="new_user.firstName" placeholder="First Name" ng-minlength='2' required>
+  <span ng-show='customerForm.firstName.$touched && customerForm.firstName.$error.required' style="color:red">Name filed cannot be empty!</span>
+  <br>
+
+<label>Last Name:</label>
+  <input class="form-control" name='lastName' type="text" ng-model="new_user.lastName" placeholder="Last Name" ng-minlength='2' required>
+  <span ng-show='customerForm.lastName.$touched && customerForm.lastName.$error.required' style="color:red">Name filed cannot be empty!</span>
+  <br>
+
+<label>Email:</label>
+  <input class="form-control" name='email' type="email" ng-model="new_user.email" placeholder="Email" required>
+  <span ng-show='customerForm.email.$touched && customerForm.email.$error.required' style="color:red">Email filed cannot be empty!</span>
+<br>
+  <input  class="btn btn-primary" type="submit" value="Register" ng-disabled="customerForm.$invalid" ng-click="addfriend()">
+  <br />
+  </form>
+</div>
+
+
+
+<div class="col-xs-8 col-sm-5 col-md-6" >
+  <h2>Login as Admin</h2>
+  <form class="" style="width:90%">
+    <label>Email:</label>
+    <input class="form-control" name='email' type="text" ng-model="admin.email ='admin129@admin.com' "   >
+  <br>
+      <input class="btn btn-success" type="submit" role="button" value="Login as Admin" ng-click="adminLogin(admin)">
+  </form>
+  <br>
+
+  <h2>Login as Customer</h2>
+  <form class="" style="width:90%">
+    <label>Email:</label>
+    <input class="form-control" name='email' type="text" ng-model="customer.email ='edison@gmail.com' "   >
+  <br>
+      <input class="btn btn-warning" type="submit" role="button" value="Login as Customer" ng-click="userLogin(customer)">
+  </form>
+
+</div>
+    <!-- <input  class="btn btn-danger" type="submit" value="Log Out"  ng-click="logout()">
+    <a href="/ministore/logout">Log Out</a> -->
+</div>

@@ -1,0 +1,73 @@
+<body>
+
+    <div ng-controller="FriendsController" style="padding: 0 40px">
+      <!-- user information {{ user }}<br> -->
+
+        <div ng-controller="ProductsController" style="padding:0 20px">
+
+            <div class="row" ng-show="user[0].level === 'admin' ">
+                <h3>Add New Product <span style="float: right"><ng-show="user[0] != null">Welcome, {{user[0].firstName}}</span>
+                </h3>
+                <hr>
+                <form name='productForm'>
+                    <h4>Product Name: </h4>
+                    <input class="form-control" style="width: 40%" name='name' type="text" ng-model="new_product.name" placeholder="Product name must be at least 3 characters long" minlength='3' required>
+                    <!-- <div ng-messages='productForm.name.$touched && productForm.name.$error'>
+                        <h5 ng-message='minlength' style="color:red">Name filed must be at least 3 characters!</h5>
+                        <h5 ng-message='required' style="color:red">Name field cannot be empty!</h5>
+                    </div> -->
+                    <!-- <span ng-show='customerForm.lastName.$touched && customerForm.lastName.$error.required' style="color:red">Name filed cannot be empty!</span> -->
+                    <!-- <textarea class="form-control" rows="5" style="display:inline; width:40%; top:0"></textarea> -->
+
+                    <h4>Price: </h4>
+                    <input class="form-control" style="width: 40%" name="price" type="number" ng-model="new_product.price" placeholder="Price must be at least $0.01 " min='0.01' required>
+                    <!-- <div ng-messages='productForm.price.$touched && productForm.price.$error'>
+                        <h5 ng-message='min' style="color:red">Price must be at least 0.01!</h5>
+                        <h5 ng-message='required' style="color:red">Price field cannot be empty!</h5>
+                    </div> -->
+                    <h4>Quantity:</h4>
+                    <input class="form-control" style="width: 40%" name="qty" type="number" ng-model="new_product.qty" placeholder="Quantity must be at least 1" min='1' required>
+                    <!-- <div ng-messages='productForm.qty.$touched && productForm.qty.$error'>
+                        <h5 ng-message='min' style="color:red">Quantity must be at least one</h5>
+                        <h5 ng-message='required' style="color:red">Quantity field cannot be empty!</h5>
+                    </div> -->
+
+                    <h4>Image (URL): </h4>
+                    <input style="width: 40%" class="form-control" name="img_url" ng-model='new_product.url' placeholder="http://">
+
+                    <br />
+                    <input id='addproduct' class="btn btn-primary" type="submit" value="Add Prodcut" ng-click="addproduct()">
+                </form>
+                <hr>
+            </div>
+
+            <div class="row">
+              <div style="margin-left: 1%">
+                <h3 ng-show="user[0].level === 'user' ">Welcome, {{ user[0].firstName }}</h3>
+                <h4>Search Product: </h4>
+                <input class="form-control " type="text" ng-model="filter_name" placeholder="Search Product" style="width: 60%; ">
+                <br />
+              </div>
+                <!--  display products -->
+                <div ng-repeat="product in products | filter: filter_name  " class="col-sm-2 col-md-2">
+                    <div class="thumbnail">
+                        <a href='#/ministore/products/{{product._id}}'><img src="{{ product.url }}" style="height: 20%"></a>
+                        <div class="caption ">
+                            <div>
+                                <h5 style="height: 10%; font-size:15px;">{{product.name | uppercase}}</h5>
+                                <h4>{{product.price | currency }}</h4>
+                                <p>Qty: {{product.qty}} left</p>
+                                <a ng-if="user[0].level === 'user' " class="btn btn-success" href="#/ministore/products/{{product._id}}" role="button">Buy</a>
+                                <form ng-if="user[0].level === 'admin' ">
+                                    <input class="btn btn-danger" type="button" value="Remove" ng-click=remove(product)>
+                                </form>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
