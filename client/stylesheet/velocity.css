@@ -10,7 +10,10 @@ html, body{
 }
 body {
   background-image: url(../photos/city01.png);
+  background-repeat: no-repeat;
   font-family: 'Open sans',sans-serif;
+  height:100%;
+  width: auto;
 }
 
 .lego {
