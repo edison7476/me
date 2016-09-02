@@ -64,10 +64,10 @@
       factory.create = function (info, callback){
         console.log('----- factory.create ------');
         $http.post('/addfriend', info)
-        .success(function (){
+        .success(function (data){
           console.log('----- factory.create ---receiving the following info---');
           // console.log('success(function (friends) = ', friends);
-          callback();
+          callback(data);
         });
         // .error(function (response){
         //   console.error('index.html - register error -  response', response);

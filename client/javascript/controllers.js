@@ -47,15 +47,18 @@ order_app.controller('FriendsController', function($scope, $window, FriendsFacto
         console.log('ng-click addfriend');
         FriendsFactory.create($scope.new_user, function(data) {
             //console.log('error:', error)
-            console.log('factory.create callback - success(function (friends) = ', friends);
             // refreshUser();
-            scope.user = data;
+            console.log("data.data = ", data);
+            if(data.status === 500){
+                $scope.errorMsg = data.message;
+            }
+            if(data.status === 200) {
+              $scope.user = data;
+              $window.location.href = '/#/ministore/products';
+              $window.location.reload();
+              $scope.new_user = {};
+            }
         });
-        $scope.new_user = {};
-        // $location.url('/ministore/products');
-        //the following code is the same as above
-        $window.location.href = '/#/ministore/products';
-        $window.location.reload();
     };
 
     $scope.userLogin = function(user) {

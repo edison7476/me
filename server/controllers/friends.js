@@ -184,78 +184,64 @@ module.exports = (function() {
             //       console.log(response); // if you're into that sorta thing
             //     });
         },
-        // login : function(req, res){
-        //   passport.authenticate('local', function(err, user, info){
-        //     var token;
-        //     console.log('- controller - friends.js ----- login method -----------');
-        //     // If Passport throws/catches an error
-        //     if (err) {
-        //       console.log('- controller - friends.js -- login method -- error', err);
-        //       res.status(404).json(err);
-        //       return;
-        //     }
-        //
-        //     // If a user is found
-        //     if(user){
-        //       console.log('- controller - friends.js -- login method -- user', user);
-        //       token = user.generateJwt();
-        //       res.status(200);
-        //       res.json({
-        //         "token" : token
-        //       });
-        //     } else {
-        //       // If user is not found
-        //       res.status(401).json(info);
-        //     }
-        //   })(req, res);
-        // },
 
         addfriend: function(req, res) {
             console.log('- controller - friends.js ----- addfriend method -----------');
             console.log('Received the following request: ', req.body);
             // console.log('controller - addfriend:function - req.body.password ', req.body.password);
-
-            var friend = new Friend({
-                'firstName': req.body.firstName,
-                'lastName': req.body.lastName,
-                'email': req.body.email,
-                'level':'user'
-            });
-            console.log('new Friend object: ', friend);
-
-            friend.save(function (err){
-              if(err){
-                console.log(err);
-                // return res.render("/minisotre/home", {info: "The usename already exists. Please try another username."});
+          Friend.findOne({email: req.body.email}, function (err, user){
+              if(user){
+                res.send({status: 500, message:"User account already exists. Please try another email"});
               }
-              else {
-                req.session.userName = friend.firstName;
-                req.session.userId = friend._id;
-                req.session.userLevel = friend.level;
-                passport.authenticate('local')(req, res, function(){
-                  res.redirect('/');
-                  // res.sendfile();
-              });
+              else{
+                var friend = new Friend();
+                friend.firstName = req.body.firstName;
+                friend.lastName = req.body.lastName;
+                friend.email = req.body.email;
+
+                if(req.body.email === "admin123@admin.com"){
+                  friend.level = "admin";
+                }
+                else {
+                  friend.level = "user";
+                }
+                console.log('new Friend object: ', friend);
+
+                friend.save(function (err){
+                  if(err){
+                    console.log(err);
+                    // return res.render("/minisotre/home", {info: "The usename already exists. Please try another username."});
+                  }
+                  else {
+                    req.session.userName = friend.firstName;
+                    req.session.userId = friend._id;
+                    req.session.userLevel = friend.level;
+                    res.send({status: 200, message:"Successfully registered"});
+                  //   passport.authenticate('local')(req, res, function(){
+                  //     res.redirect('/');
+                  // });
+                  }
+                });
+                // friend.setPassword(req.body.password);
+                // friend.save(function(err) {
+                //     if (err) {
+                //         console.log('controller responses error: ', err);
+                //         res.status(500).json({
+                //             errors: err.errors
+                //         });
+                //     } else {
+                //         var token;
+                //         token = friend.generateJwt();
+                //         console.log('controller -- firend.js -- addfriend -- token = ', token);
+                //         console.log('sending Token back to the front-end');
+                //         res.status(200);
+                //         res.json({
+                //             "token": token
+                //         });
+                //     }
+                // });
               }
-            });
-            // friend.setPassword(req.body.password);
-            // friend.save(function(err) {
-            //     if (err) {
-            //         console.log('controller responses error: ', err);
-            //         res.status(500).json({
-            //             errors: err.errors
-            //         });
-            //     } else {
-            //         var token;
-            //         token = friend.generateJwt();
-            //         console.log('controller -- firend.js -- addfriend -- token = ', token);
-            //         console.log('sending Token back to the front-end');
-            //         res.status(200);
-            //         res.json({
-            //             "token": token
-            //         });
-            //     }
-            // });
+          });
         },
 
         removefriend: function(req, res) {

@@ -5,7 +5,9 @@
 <!-- {{ user }} -->
      {{validationError.errors.message}}
 
+
 <div class="col-xs-8 col-sm-5 col-md-6 ">
+  <h4 style="color: red">  {{ errorMsg }} </h4>
     <h2>Register and Login as Customer</h2>
   <form name= 'customerForm' style="width:90%">
 <label>First Name:</label>
@@ -33,7 +35,7 @@
   <h2>Login as Admin</h2>
   <form class="" style="width:90%">
     <label>Email:</label>
-    <input class="form-control" name='email' type="text" ng-model="admin.email ='admin129@admin.com' "   >
+    <input class="form-control" name='email' type="text" ng-model="admin.email ='admin123@admin.com' "   >
   <br>
       <input class="btn btn-success" type="submit" role="button" value="Login as Admin" ng-click="adminLogin(admin)">
   </form>
