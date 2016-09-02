@@ -52,14 +52,9 @@
     }
     body{
 
-      height: 100%;
+      height: auto;
       overflow-y: auto;
     }
-    .fill-height {
-    min-height: 100%;
-    height:auto !important; /* cross-browser */
-    height: 100%; /* cross-browser */
-}
 </style>
 
 <body>
@@ -97,7 +92,7 @@
         <div ng-include="templateUrl"></div>
     </div>
 
-    <div ng-view='' class="fill-height"></div>
+    <div ng-view='' ></div>
     <!-- everything in the body is going to use the friends controller (this gives us access to the friends controller $scope) -->
 
     <!-- Bootstrap core JavaScript
