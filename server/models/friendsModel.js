@@ -11,18 +11,21 @@ var passportLocalMongoose = require('passport-local-mongoose');
 var FriendSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: [true, 'Name field cannot be empty'],
-        minlength: [2, 'Name must be at least 3 characters']
+        sparse:true,
+        // required: [true, 'Name field cannot be empty'],
+        // minlength: [2, 'Name must be at least 3 characters']
     },
     lastName: {
         type: String,
-        required: [true, 'Name field cannot be empty'],
-        minlength: [2, 'Name must be at least 2 characters']
+        sparse:true,
+        // required: [true, 'Name field cannot be empty'],
+        // minlength: [2, 'Name must be at least 2 characters']
     },
     email: {
         type: String,
         unique: true,
-        required: [true, 'Email field cannot be empty'],
+        sparse:true
+        // required: [true, 'Email field cannot be empty'],
     },
     level: {
         type: String,

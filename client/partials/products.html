@@ -1,5 +1,10 @@
+<style media="screen">
+.zIndex {
+  z-index: 1;
+  width: 40% ;
+}
+</style>
 <body>
-
     <div ng-controller="FriendsController" style="padding: 0 40px">
       <!-- user information {{ user }}<br> -->
 
@@ -11,7 +16,7 @@
                 <hr>
                 <form name='productForm'>
                     <h4>Product Name: </h4>
-                    <input class="form-control" style="width: 40%" name='name' type="text" ng-model="new_product.name" placeholder="Product name must be at least 3 characters long" minlength='3' required>
+                    <input class="form-control zIndex"  name='name' type="text" ng-model="new_product.name" placeholder="Product name must be at least 3 characters long" minlength='3' required>
                     <!-- <div ng-messages='productForm.name.$touched && productForm.name.$error'>
                         <h5 ng-message='minlength' style="color:red">Name filed must be at least 3 characters!</h5>
                         <h5 ng-message='required' style="color:red">Name field cannot be empty!</h5>
@@ -20,20 +25,20 @@
                     <!-- <textarea class="form-control" rows="5" style="display:inline; width:40%; top:0"></textarea> -->
 
                     <h4>Price: </h4>
-                    <input class="form-control" style="width: 40%" name="price" type="number" ng-model="new_product.price" placeholder="Price must be at least $0.01 " min='0.01' required>
+                    <input class="form-control zIndex"  name="price" type="number" ng-model="new_product.price" placeholder="Price must be at least $0.01 " min='0.01' required>
                     <!-- <div ng-messages='productForm.price.$touched && productForm.price.$error'>
                         <h5 ng-message='min' style="color:red">Price must be at least 0.01!</h5>
                         <h5 ng-message='required' style="color:red">Price field cannot be empty!</h5>
                     </div> -->
                     <h4>Quantity:</h4>
-                    <input class="form-control" style="width: 40%" name="qty" type="number" ng-model="new_product.qty" placeholder="Quantity must be at least 1" min='1' required>
+                    <input class="form-control zIndex"  name="qty" type="number" ng-model="new_product.qty" placeholder="Quantity must be at least 1" min='1' required>
                     <!-- <div ng-messages='productForm.qty.$touched && productForm.qty.$error'>
                         <h5 ng-message='min' style="color:red">Quantity must be at least one</h5>
                         <h5 ng-message='required' style="color:red">Quantity field cannot be empty!</h5>
                     </div> -->
 
                     <h4>Image (URL): </h4>
-                    <input style="width: 40%" class="form-control" name="img_url" ng-model='new_product.url' placeholder="http://">
+                    <input class="form-control zIndex" name="img_url" ng-model='new_product.url' placeholder="http://">
 
                     <br />
                     <input id='addproduct' class="btn btn-primary" type="submit" value="Add Prodcut" ng-click="addproduct()">

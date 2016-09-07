@@ -1,10 +1,16 @@
+<style media="screen">
+  .zIndex {
+    z-index: 1;
+    width: 40% ;
+  }
+</style>
 <body>
     <div class="container">
         <div ng-controller='ProductsInfoController'>
             <div class="row">
                 <div class="col-xs-8 col-sm-5 col-md-5">
                     <div class="thumbnail">
-                        <img src="{{ product.url }}" style="height:45%">
+                        <img src="{{ product.url }}" style="height:400px;">
                         <!-- <p style="color:red">{{product._id}}</p> -->
                         <div class="caption">
                             <h3 class="product_name">{{product.name | uppercase}}</h3>
@@ -69,18 +75,18 @@
                             <form name='editProductForm'>
 
                                     <h4>Product Name: </h4>
-                                    <input class="form-control" style="width: 30%" name='name' type="text" ng-model="product.name" placeholder="Product name must be at least 3 characters long" minlength='3' required>
+                                    <input class="form-control zIndex" name='name' type="text" ng-model="product.name" placeholder="Product name must be at least 3 characters long" minlength='3' required>
 
                                     <h4>Price: </h4>
-                                    <input class="form-control" style="width: 30%" name="price"  ng-model="product.price"
+                                    <input class="form-control zIndex" name="price"  ng-model="product.price"
                                     min = "0.01"
                                      placeholder="Price must be at least $0.01 "  required>
 
                                     <h4>Quantity:</h4>
-                                    <input class="form-control" style="width: 30%" name="qty" type="number" ng-model="product.qty" placeholder="Quantity must be at least 1" min='1' required>
+                                    <input class="form-control zIndex" name="qty" type="number" ng-model="product.qty" placeholder="Quantity must be at least 1" min='1' required>
 
                                     <h4>Image (URL): </h4>
-                                    <input style="width: 30%" class="form-control" name="img_url" ng-model='product.url' placeholder="http://">
+                                    <input class="form-control zIndex" name="img_url" ng-model='product.url' placeholder="http://">
                                 <br />
                                 <input id='addproduct' class="btn btn-primary" type="submit" value="Edit Prodcut Information" ng-click="editProduct(product)">
                             </form>
