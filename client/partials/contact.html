@@ -15,13 +15,18 @@
     .line {
         border: 2px solid #D14040;
     }
+    html, body{
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
 </style>
 
 
 
-<div style=" padding: 10px 50px 0 50px; overflow: hidden">
+<div style=" padding: 0px 50px ;">
 <div class="row" style="font-family: Comic Sans MS, cursive, sans-serif; font-size:140%; padding-left: 30px">
-  <h1>Contact Me</h1>
+  <h2>Contact Me</h2>
   <h4>
     Please fill in the information before sending
   </h4>
@@ -43,6 +48,8 @@
     <a href="https://www.linkedin.com/in/edison-wang-funcoding" style="color: black" >https://www.linkedin.com/in/edison-wang-funcoding</a>
     <br>
     <br>
+    <h4 style="color:red; display: table-cell;
+    vertical-align: bottom; position:absolute;">* The send button is disabled when the form fields are blank or invalid</h4>
   </div>
 
     <div class="col-xs-12 col-sm-6 col-md-7 contactForm" ng-controller="FriendsController" style="font-family: Comic Sans MS, cursive, sans-serif">
@@ -81,8 +88,6 @@
                 <span ng-show="emailForm.textArea.$touched && emailForm.textArea.$error.required && !emailForm.$submitted" class="help-block">Message field is required</span>
                 <span ng-show="emailForm.$submitted && emailForm.textArea.$error.required " class="help-block" style="color: green">Sending... </span>
             </div>
-
-            <br>
             <br>
 
             <button name="sendEmail" type="submit" ng-disabled="emailForm.$invalid" class="send">
@@ -91,7 +96,7 @@
                 <div class="done" name="done">SUCCESS</div>
             </button>
         </form>
-        <h4>* The send button is disabled when form fields are missing or invalid</h4>
+
     </div>
 </div>
 
