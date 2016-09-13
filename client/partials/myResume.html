@@ -33,16 +33,24 @@
          }
          @media print {
            .no-print,
-           .no-print * { display: none !important; },
+           .no-print * { display: none !important; }
+           html { width:8.5in; }
+           body { font: 9pt/1.5 Arial, sans-serif; overflow: hidden}
           }
+          /*@media screen and (max-width:8.5in) {
+            html { width:8.5in; }
+            body { font: 9pt/1.5 Arial, sans-serif; }
+          }*/
           html, body{
-            height: auto;
-            width: auto;
-            overflow-y: scroll;;
+            height: 100%;
+            /*width: auto;*/
+            overflow-y: auto;
           }
      </style>
 
 </head>
+<body>
+
 
   <div class="printContent">
 
@@ -111,24 +119,23 @@
 
             <dt>Projects</dt>
             <dd class="content">
-              <strong>Mini Web Store</strong> - <em>www.edisonwang.net/#/ministore/loginMethod</em>
+              <strong>Mini Web Store</strong> - <em>www.edisonwang.net/#/ministore/loginMethod</em> <h3><span>E-Commerce Store‎</span></h3>
               <ul>
-                <li>In this mini store web application, I created a REST API to pull/create/update/delete information from the database and demonstrated different types of accessibility based on the level of authority.</li>
+                <!-- <li>In this mini store web application, I created a REST APIs and demonstrated different types of accessibility </li> -->
                 <li>Developed RESTful APIs with Node.js, Express.js and MongoDB database for user registration, authentication, search, content creation, and products management.</li>
                 <li>Architected MongoDB database with Mongoose.js to store user information and product information.</li>
-                <li>Designed UI/UX for the application using Bootstrap and Angular.js to populate products information, product reviews, limit user accessibility and provide responsive user interface.</li>
+                <li>Designed UI/UX for the application using Bootstrap and Angular.js to populate products information and reviews, limit user accessibility based on the level of authority, and provide responsive user interface.</li>
               </ul>
 
-              <strong>Kastee</strong> - <em>www.kastee.com</em>
+              <strong>Kastee</strong> - <em>www.kastee.com</em> <h3><span>Social Media for Communities</span></h3>
               <ul>
-                <li>This is a community social media web application targeted in solving communication issues in communities and building great relationships in your community without losing your online privacy.</li>
-    						<li>Designed RESTful web services for client and server sites using Python and Pylot (a Flask based MVC framework).</li>
+    						<li>Designed RESTful web services for client and server sites using Python and Pylot.</li>
     						<li>Architected MySQL database schema to create one-to-many and many-to-many relationships between users, posts, and comments.</li>
-    						<li>Implemented Google Places API with one click quick search buttons in the application to display places and their directions nearby the user's location</li>
+    						<li>Implemented Google Places API with one click search buttons to display places nearby the user's location and provide direction for selected place</li>
                 <li>Integrated Open Weather API to provide weather information at the user's current location.</li>
               </ul>
 
-              <strong>Forge </strong> - <em>www.kyletsuyemura.com/landing</em>
+              <strong>Forge </strong> - <em>www.kyletsuyemura.com/landing</em> <h3><span>Games Searching & Streaming</span></h3>
     					<ul>
     						<li>This is a game seraching and streaming web application that allows users to search games, preview the selected game playing by the most popular streamer on Twitch, and also display the matching Amazon product listings of a selected game on the site.</li>
     						<li>Working in a team of 3 peers, we accomplished the application from scratch in 3 days using Node.js, Express.js, Mongoose.js, Angular.js, Twitch API, and Amazon Product Advertisement API.</li>
@@ -142,11 +149,10 @@
             <dd class="content">
               <ul>
               <li>Javascript, Node.JS, Angular.JS, MongoDB, Python, MySQL, Flask, Swift, Xcode, jQuery, HTML, CSS.</li>
-              <li>Proficient in Microsoft Office - Word, Excel, PowerPoint.</li>
-
                 <li>Exceptional analytical skills with the talent to pinpoint solutions for issues.</li>
                 <li>Results-driven achiever with planning and organizational skills, along with extreme detail orientation.</li>
                 <li>Productive worker with solid work ethic who exerts best effort in completing duties successfully.&nbsp;</li>
+                <li>Proficient in Microsoft Office - Word, Excel, PowerPoint.</li>
                 </ul>
 
             </dd>
@@ -184,6 +190,6 @@
       </div>
     </div>
 </div>
-
+</body>
 
 </html>
