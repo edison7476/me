@@ -12,8 +12,10 @@ body {
   background-image: url(../photos/city01.png);
   background-repeat: no-repeat;
   font-family: 'Open sans',sans-serif;
-  height:auto;
-
+  height:100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .lego {
