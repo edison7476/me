@@ -1,5 +1,5 @@
 var order_app = angular.module('order_app', ['ngRoute', 'ngMessages']);
-order_app.config(function($routeProvider) {
+order_app.config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'partials/home.html'
@@ -49,4 +49,5 @@ order_app.config(function($routeProvider) {
         .otherwise({
             redirectTo: '/'
         });
+
 });
