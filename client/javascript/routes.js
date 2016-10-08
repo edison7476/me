@@ -45,7 +45,11 @@ order_app.config(function($routeProvider, $locationProvider) {
         .when('/ministore/shopping', {
             templateUrl: 'partials/googleapi.html'
         })
+
         // End of Mini Store front-end routes
+        .when('/booking_demo',{
+          templateUrl: 'partials/bookingDemo.html'
+        })
         .otherwise({
             redirectTo: '/'
         });

@@ -20,6 +20,7 @@
     <script type='text/javascript' src='/javascript/routes.js'></script>
     <script type='text/javascript' src='/javascript/factories.js'></script>
     <script type='text/javascript' src='/javascript/homePageController.js'></script>
+    <script type='text/javascript' src='/javascript/roomController.js'></script>
     <script type='text/javascript' src='/javascript/controllers.js'></script>
 
     <!-- Optional theme -->
@@ -126,7 +127,24 @@
             "Implemented Google Places API with one click quick search buttons in the application to display places and their directions nearby the user's location and Open Weather API to provide weather information at the user's current location."
         ]
         $.noConflict()
+
         jQuery(document).ready(function($) {
+
+          // function equalHeight(group) {
+          //   console.log('equalHeight is called!! group = ', group);
+          //   var tallest = 0;
+          //   group.each(function() {
+          //     var thisHeight = $(this).height();
+          //     console.log('thisHeight = ', thisHeight);
+          //     if(thisHeight > tallest) {
+          //         tallest = thisHeight;
+          //       }
+          //     });
+          //   group.each(function() { $(this).height(tallest); });
+          // }
+          // equalHeight($(".caption"));
+
+
             console.log("jQuery Ready");
             var toggle = $('#ss_toggle');
             var menu = $('#ss_menu');

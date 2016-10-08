@@ -4,11 +4,12 @@
 order_app.controller('FriendsController', function($scope, $window, FriendsFactory, $location) {
 
     $scope.$on('$locationChangeSuccess', function($routeParams) {
+
         var path = $location.path();
         var product_id = $routeParams.product_id;
         // $scope.templateUrl = (path === '/ministore/') ? '/partials/miniStoreNav.html' : '/partials/normalNav.html';
         // $scope.templateUrl = (path === '/ministore/main'|| path === '/ministore/customers' || path === '/ministore/orders'|| path === '/ministore/products' || path === '/ministore/products/'+product_id )  ? '/partials/miniStoreNav.html' : '/partials/normalNav.html';
-        $scope.templateUrl = (path === '/' || path === '/about' || path === '/projects' || path === '/contact' || path === '/resume' || path === '/math_programming') ? '/partials/normalNav.html' : '/partials/miniStoreNav.html';
+        $scope.templateUrl = (path === '/' || path === '/about' || path === '/projects' || path === '/contact' || path === '/resume' || path === '/math_programming' || path === '/booking_demo') ? '/partials/normalNav.html' : '/partials/miniStoreNav.html';
     });
 
     FriendsFactory.index(function(data) {
