@@ -121,19 +121,45 @@ color: #0024ff
                             <button type="button" class="close" aria-label="Close" style="color:red" ng-click="remove()"></button>
                         </p>
                     </div>
+                    <!-- <table>
+                      <tr>
+                        <td><img src="{{bookingInfo.roomInfo.image_url}}" alt="" /></td>
+                        <td colspan="3">
+                          <div class="col-sm-7 col-md-7">
+                              <p>Guest Name: </p>
+                              <p>Room Type: </p>
+                              <p>Price: </p>
+                              <p ng-if="bookingInfo.ChampagneStrawberries.room_price">Champagne&Strawberries:</p>
 
+                          </div>
+                          <div class="col-sm-5 col-md-5">
+                              <p>{{ bookingInfo.guestInfo.first_name | uppercase }} {{ bookingInfo.guestInfo.last_name | uppercase }}</p>
+                              <p>{{ bookingInfo.roomInfo.short_desc }}</p>
+                              <p>{{ bookingInfo.roomInfo.room_price }}</p>
+                              <p>{{ bookingInfo.ChampagneStrawberries.room_price }}
+                                  <a ng-if="bookingInfo.ChampagneStrawberries.room_price" href="" style="color:red" class="close" ng-click="remove()">x</a>
+                                  <button type="button" class="close" aria-label="Close" style="color:red" ng-click="remove()"></button>
+                              </p>
+                          </div>
+                        </td>
+                      </tr>
+                    </table> -->
+<!--  upgrade options-->
                     <table class="table table-hover" ng-repeat="upgradeOption in roomData">
                         <tr ng-show="(upgradeOption.item_id > bookingInfo.roomInfo.item_id) && (upgradeOption.item_id < 103)">
-                            <td colspan="3">Upgrade to {{ upgradeOption.room_code}} room for only {{ upgradeOption.price}}</td>
+                            <td><img src="{{ upgradeOption.image_url}}" alt="" /></td>
+                            <td colspan="2">Upgrade to {{ upgradeOption.room_code}} room for only {{ upgradeOption.price}}</td>
                             <td>
                                 <button type="button" class="btn btn-info btn-sm pull-right" ng-click='upgrade(upgradeOption)'>Upgrade</button>
                             </td>
                         </tr>
                         <tr ng-show="(upgradeOption.item_id < bookingInfo.roomInfo.item_id) && (upgradeOption.item_id < 103)">
-                            <td colspan="4" style="color:red"><a href="" ng-click='upgrade(upgradeOption)'>I would like to check {{ upgradeOption.room_code}} room</a>
+                          <td><img src="{{ upgradeOption.image_url}}" alt="" /></td>
+                            <td colspan="3" style="color:red"><a href="" ng-click='upgrade(upgradeOption)'>I would like to check {{ upgradeOption.room_code}} room</a>
                         </tr>
                         <tr ng-show="(upgradeOption.item_id == 103 && bookingInfo.roomInfo.room_price > 199) && !bookingInfo.ChampagneStrawberries.room_price">
-                            <td colspan="3">Add {{ upgradeOption.short_desc}} for {{ upgradeOption.price}} </td>
+                          <td><img src="{{ upgradeOption.image_url}}" alt="" /></td>
+                            <td colspan="2">Add {{ upgradeOption.short_desc}} for {{ upgradeOption.price}} </td>
                             <td>
                                 <button type="button" class="btn btn-info btn-sm pull-right" ng-click='add(upgradeOption)'>Add</button>
                             </td>
