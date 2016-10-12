@@ -53,11 +53,7 @@
   </div>
 
     <div class="col-xs-12 col-sm-6 col-md-7 contactForm" ng-controller="FriendsController" style="font-family: Comic Sans MS, cursive, sans-serif">
-        <!-- <h2 sytle="margin: auto">Contact Me</h2>
-        <h4>
-          Please fill in the information before sending email
-        </h4>
-        <br> -->
+        
         <form name="emailForm" ng-submit="sendEmail()" role="form" style="font-size: 140%">
             <!--Name Field-->
             <div class="form-group" ng-class="{ 'has-error': emailForm.name.$dirty && emailForm.name.$error.required }">
