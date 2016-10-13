@@ -1,5 +1,23 @@
 order_app.controller('roomController', function($scope) {
-    $scope.h = 'Hello World';
+
+    $scope.today = new Date();
+
+// setting the check out date to be at lease one day after the check In date
+    $scope.checkOut = function (guest){
+      console.log("guest.checkInDate = ", guest.checkInDate);
+      var checkOutMin = new Date();
+      var checkOutDate = guest.checkInDate;
+      // console.log("checkOutDate = ", checkOutDate.getDate()+1);
+      // $scope.checkOutMin =
+      console.log("guest.checkOutMin= ", checkOutMin.setDate(checkOutDate.getDate()+1));
+      $scope.guest.checkOutMinDate = checkOutMin;
+      console.log("$scope.guest.checkOutMinDate = ", $scope.guest.checkOutMinDate);
+
+    };
+    console.log("$socpe.today =", $scope.today);
+    // console.log("checkOutdate = ", checkOutdate);
+
+
     $scope.roomData = [
 
         {

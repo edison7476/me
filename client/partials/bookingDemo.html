@@ -26,7 +26,13 @@ background: rgba(0, 0, 0, 0.5);
 .footer-bottom a{
 color: #0024ff
 }
+.form-horizontal .control-label{
+    text-align: left;
+}
 </style>
+<script type="text/javascript">
+
+</script>
 
   <div ng-controller="roomController" class="modal-open">
     <!--  we can put the following code into directvie-->
@@ -76,12 +82,26 @@ color: #0024ff
                         </div>
                         <!--  Email -->
                         <div class="form-group">
-                            <label for="imgURL" class="col-sm-3 control-label">Email:</label>
+                            <label for="" class="col-sm-3 control-label">Email:</label>
                             <div class="col-sm-9">
                                 <input class="form-control" name="email" placeholder="Email" type="text" ng-model="guest.email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required>
                                 <span ng-show='bookForm.email.$touched && bookForm.email.$error.required' style="color:red">Email field cannot be empty!</span>
                                 <span ng-show='bookForm.email.$touched && bookForm.email.$error.pattern' style="color:red">Not a valid email! Please provide a valid email.</span>
                             </div>
+                        </div><!--  End of Email section-->
+
+                        <div class="form-group">
+                          <label class="col-sm-3 control-label">Check-In Date: </label>
+                          <div class="col-sm-9">
+                            <input type="date" name="date" ng-model="guest.checkInDate" min="{{ today | date:'yyyy-MM-dd'}}" >
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-sm-3 control-label">Check-Out Date: </label>
+                          <div class="col-sm-9">
+                            <input type="date" name="date" ng-model="guest.checkOutDate" min="{{ guest.checkOutMinDate | date:'yyyy-MM-dd'}}" ng-click="checkOut(guest)">
+                          </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
@@ -121,7 +141,7 @@ color: #0024ff
                             <button type="button" class="close" aria-label="Close" style="color:red" ng-click="remove()"></button>
                         </p>
                     </div>
-                  
+
 <!--  upgrade options-->
                     <table class="table table-hover" ng-repeat="upgradeOption in roomData">
                         <tr ng-show="(upgradeOption.item_id > bookingInfo.roomInfo.item_id) && (upgradeOption.item_id < 103)">
