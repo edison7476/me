@@ -71,6 +71,7 @@ order_app.controller('roomController', function($scope) {
 
     $scope.confirmRoom = function (guest){
       $scope.bookingInfo.guestInfo = guest;
+      // $scope.bookingInfo.total_price = $scope.bookingInfo.roomInfo.room_price * ( ($scope.bookingInfo.guestInfo.checkOutDate - $scope.bookingInfo.guestInfo.checkInDate)/86400000 );
       console.log('bookingInfo adding guestInfo', $scope.bookingInfo.guestInfo);
       $scope.guest = {};
       $scope.room = {};
@@ -94,7 +95,7 @@ order_app.controller('roomController', function($scope) {
     $scope.remove = function (){
       // console.log('removeThis = ', removeThis);
       $scope.bookingInfo.ChampagneStrawberries= {};
-      console.log('After adding ChampagneStrawberries - book room info', $scope.bookingInfo);
+      console.log('After removing ChampagneStrawberries - book room info', $scope.bookingInfo);
     };
 
     $scope.finalConfirm= function (bookingInfo){
@@ -105,7 +106,7 @@ order_app.controller('roomController', function($scope) {
           email: bookingInfo.guestInfo.email,
           room_code: bookingInfo.roomInfo.room_code,
           item_id: bookingInfo.roomInfo.item_id,
-          room_price: bookingInfo.roomInfo.room_price + bookingInfo.ChampagneStrawberries.room_price
+          total: ($scope.bookingInfo.roomInfo.room_price * ( ($scope.bookingInfo.guestInfo.checkOutDate - $scope.bookingInfo.guestInfo.checkInDate)/86400000 ))+ bookingInfo.ChampagneStrawberries.room_price
       };
       console.log("bookedRoomInfo = ", bookedRoomInfo);
       //then pass bookedRoomInfo to factory

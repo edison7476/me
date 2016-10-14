@@ -130,8 +130,8 @@ color: #0024ff
                         <p>Room Type: </p>
                         <p>Check In: </p>
                         <p>Check Out: </p>
-                        <p>Total Price: </p>
                         <p ng-if="bookingInfo.ChampagneStrawberries.room_price">Champagne&Strawberries:</p>
+                        <p >Total Price: </p>
                     </div>
                     <div class="col-sm-5 col-md-5">
                         <!-- Display booking information guest name, room type, price-->
@@ -139,11 +139,11 @@ color: #0024ff
                         <p>{{ bookingInfo.roomInfo.short_desc }}</p>
                         <p>{{ bookingInfo.guestInfo.checkInDate | date }}</p>
                         <p>{{ bookingInfo.guestInfo.checkOutDate| date }}</p>
-                        <p>{{ bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price }} </p>
                         <p>{{ bookingInfo.ChampagneStrawberries.room_price }}
                             <a ng-if="bookingInfo.ChampagneStrawberries.room_price" href="" style="color:red" class="close" ng-click="remove()">x</a>
                             <button type="button" class="close" aria-label="Close" style="color:red" ng-click="remove()"></button>
                         </p>
+                        <p>{{ bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price }} </p>
                     </div>
 
 <!--  upgrade options-->
@@ -159,7 +159,7 @@ color: #0024ff
                           <td><img src="{{ upgradeOption.image_url}}" alt="" /></td>
                             <td colspan="3" style="color:red"><a href="" ng-click='upgrade(upgradeOption)'>I would like to check {{ upgradeOption.room_code}} room</a>
                         </tr>
-                        <tr ng-show="(upgradeOption.item_id == 103 && bookingInfo.roomInfo.room_price > 199) && !bookingInfo.ChampagneStrawberries.room_price">
+                        <tr ng-show="(upgradeOption.item_id == 103 && (bookingInfo.roomInfo.room_price * ((bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 )) > 199) && !bookingInfo.ChampagneStrawberries.room_price">
                           <td><img src="{{ upgradeOption.image_url}}" alt="" /></td>
                             <td colspan="2">Add {{ upgradeOption.short_desc}} for {{ upgradeOption.price}} </td>
                             <td>
@@ -200,7 +200,7 @@ color: #0024ff
                         <p>{{ bookingInfo.roomInfo.short_desc }}</p>
                         <p>{{ bookingInfo.guestInfo.checkInDate | date }}</p>
                         <p>{{ bookingInfo.guestInfo.checkOutDate| date }}</p>
-                        <p>{{ bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price }} </p>
+                        <p>{{ (bookingInfo.roomInfo.room_price * ((bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000))+ bookingInfo.ChampagneStrawberries.room_price }} </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Finish</button>
