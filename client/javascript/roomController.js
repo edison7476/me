@@ -27,7 +27,7 @@ order_app.controller('roomController', function($scope) {
             "item_id": 100,
             "room_code": "QUEEN",
             "price": "$20 extra per night",
-            "room_price": 180
+            "room_price": 80
         },
 
         {
@@ -37,7 +37,7 @@ order_app.controller('roomController', function($scope) {
             "item_id": 101,
             "room_code": "KING",
             "price": "$25 extra per night",
-            "room_price": 205
+            "room_price": 105
         },
 
         {
@@ -47,7 +47,7 @@ order_app.controller('roomController', function($scope) {
             "item_id": 102,
             "room_code": "SUITE",
             "price": "$30 extra per night",
-            "room_price": 235
+            "room_price": 135
         },
 
         {
@@ -75,6 +75,7 @@ order_app.controller('roomController', function($scope) {
       $scope.guest = {};
       $scope.room = {};
       console.log('After cleaning guest and room scope - book room info', $scope.bookingInfo);
+
       console.log("$scope.guest = ", $scope.guest);
       console.log("scope.room = ", $scope.room);
     };

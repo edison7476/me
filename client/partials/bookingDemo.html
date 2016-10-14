@@ -128,14 +128,18 @@ color: #0024ff
                     <div class="col-sm-4 col-md-4">
                         <p>Guest Name: </p>
                         <p>Room Type: </p>
-                        <p>Price: </p>
+                        <p>Check In: </p>
+                        <p>Check Out: </p>
+                        <p>Total Price: </p>
                         <p ng-if="bookingInfo.ChampagneStrawberries.room_price">Champagne&Strawberries:</p>
                     </div>
                     <div class="col-sm-5 col-md-5">
                         <!-- Display booking information guest name, room type, price-->
                         <p>{{ bookingInfo.guestInfo.first_name | uppercase }} {{ bookingInfo.guestInfo.last_name | uppercase }}</p>
                         <p>{{ bookingInfo.roomInfo.short_desc }}</p>
-                        <p>{{ bookingInfo.roomInfo.room_price }}</p>
+                        <p>{{ bookingInfo.guestInfo.checkInDate | date }}</p>
+                        <p>{{ bookingInfo.guestInfo.checkOutDate| date }}</p>
+                        <p>{{ bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price }} </p>
                         <p>{{ bookingInfo.ChampagneStrawberries.room_price }}
                             <a ng-if="bookingInfo.ChampagneStrawberries.room_price" href="" style="color:red" class="close" ng-click="remove()">x</a>
                             <button type="button" class="close" aria-label="Close" style="color:red" ng-click="remove()"></button>
@@ -186,13 +190,17 @@ color: #0024ff
                     <div class="col-sm-3">
                         <p>Guest Name: </p>
                         <p>Room Type: </p>
+                        <p>Check In: </p>
+                        <p>Check Out: </p>
                         <p>Total Price: </p>
                     </div>
                     <div class="col-sm-5">
                         <!-- Display booking information guest name, room type, price-->
                         <p>{{ bookingInfo.guestInfo.first_name }} {{ bookingInfo.guestInfo.last_name}}</p>
                         <p>{{ bookingInfo.roomInfo.short_desc }}</p>
-                        <p>{{ bookingInfo.roomInfo.room_price + bookingInfo.ChampagneStrawberries.room_price }}</p>
+                        <p>{{ bookingInfo.guestInfo.checkInDate | date }}</p>
+                        <p>{{ bookingInfo.guestInfo.checkOutDate| date }}</p>
+                        <p>{{ bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price }} </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Finish</button>
