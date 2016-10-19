@@ -29,12 +29,31 @@ color: #0024ff
 .form-horizontal .control-label{
     text-align: left;
 }
+.currencySelection{
+  display: block;
+  position: fixed;
+  margin-top: -60px;
+  z-index: 1030;
+  right:0;
+}
 </style>
 <script type="text/javascript">
 
 </script>
 
   <div ng-controller="roomController" class="modal-open">
+  <!-- <div class="row"> -->
+    <div class="col-xs-2 col-sm-2 col-md-2 currencySelection">
+      <select ng-model="fromType" class="form-control" required
+              data-ng-change="forExConvert()"
+              style="display: inline-block"
+              ng-options="k for (k, v) in rates track by v">
+      <option value="">--Select Currency (USD)--</option>
+      </select>
+    </div>
+  <!-- </div> -->
+
+
     <!--  we can put the following code into directvie-->
     <div class="wrap" ng-repeat="room in roomData " ng-hide="$last">
         <div class="col-xs-4 col-sm-4 col-md-4 ">
@@ -43,7 +62,12 @@ color: #0024ff
                 <div class="caption">
                     <h4>{{ room.short_desc }}</h4>
                     <p class="long_desc">{{ room.long_desc }}</p>
-                    <h5>Price: {{ room.room_price }}/Night</h5>
+
+                      <div class="">
+                        <h5 ng-hide="fromType">Price: {{ room.room_price }} /Night </h5>
+                        <h5 ng-show="fromType">Price: {{ room.room_price * fromType | number: 2}} /Night </h5>
+                      </div>
+
                     <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#bookRoomModal" ng-click="bookRoom(room)">Book Room</button>
                 </div>
             </div>
@@ -139,11 +163,14 @@ color: #0024ff
                         <p>{{ bookingInfo.roomInfo.short_desc }}</p>
                         <p>{{ bookingInfo.guestInfo.checkInDate | date }}</p>
                         <p>{{ bookingInfo.guestInfo.checkOutDate| date }}</p>
-                        <p>{{ bookingInfo.ChampagneStrawberries.room_price }}
+                        <p ng-hide="fromType">{{ bookingInfo.ChampagneStrawberries.room_price }}
+                        <p ng-show="fromType">{{ bookingInfo.ChampagneStrawberries.room_price * fromType | number: 2}}
                             <a ng-if="bookingInfo.ChampagneStrawberries.room_price" href="" style="color:red" class="close" ng-click="remove()">x</a>
                             <button type="button" class="close" aria-label="Close" style="color:red" ng-click="remove()"></button>
                         </p>
-                        <p>{{ bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price }} </p>
+                        <p ng-hide="fromType">{{ bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price }} </p>
+                        <p ng-show="fromType">{{ fromType * (bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price ) | number: 2}} </p>
+
                     </div>
 
 <!--  upgrade options-->
@@ -200,7 +227,8 @@ color: #0024ff
                         <p>{{ bookingInfo.roomInfo.short_desc }}</p>
                         <p>{{ bookingInfo.guestInfo.checkInDate | date }}</p>
                         <p>{{ bookingInfo.guestInfo.checkOutDate| date }}</p>
-                        <p>{{ (bookingInfo.roomInfo.room_price * ((bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000))+ bookingInfo.ChampagneStrawberries.room_price }} </p>
+                        <p ng-hide="fromType">{{ (bookingInfo.roomInfo.room_price * ((bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000))+ bookingInfo.ChampagneStrawberries.room_price }} </p>
+                        <p ng-show="fromType">{{ fromType * (bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price ) | number: 2}} </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Finish</button>

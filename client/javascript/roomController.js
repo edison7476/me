@@ -1,6 +1,14 @@
-order_app.controller('roomController', function($scope) {
+order_app.controller('roomController', function($scope, $http) {
 
     $scope.today = new Date();
+    $scope.rates= {};
+    $http.get('http://api.fixer.io/latest?base=USD')
+    .then(function(res){
+    $scope.rates= res.data.rates;
+  });
+    // $scope.forExConvert = function (){
+    //   $scope.
+    // };
 
 // setting the check out date to be at lease one day after the check In date
     $scope.checkOut = function (guest){
@@ -12,7 +20,6 @@ order_app.controller('roomController', function($scope) {
       console.log("guest.checkOutMin= ", checkOutMin.setDate(checkOutDate.getDate()+1));
       $scope.guest.checkOutMinDate = checkOutMin;
       console.log("$scope.guest.checkOutMinDate = ", $scope.guest.checkOutMinDate);
-
     };
     console.log("$socpe.today =", $scope.today);
     // console.log("checkOutdate = ", checkOutdate);
