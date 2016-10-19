@@ -6,9 +6,17 @@ order_app.controller('roomController', function($scope, $http) {
     .then(function(res){
     $scope.rates= res.data.rates;
   });
-    // $scope.forExConvert = function (){
-    //   $scope.
-    // };
+    $scope.forExConvert = function (value){
+      console.log(value);
+      console.log($scope.rates);
+      for(var currencyKey in $scope.rates){
+        if(value === $scope.rates[currencyKey]){
+        console.log("key = ", currencyKey, "value = ", value);
+        $scope.currency = currencyKey;
+        console.log("$scope.currency", $scope.currency);
+        }
+      }
+    };
 
 // setting the check out date to be at lease one day after the check In date
     $scope.checkOut = function (guest){

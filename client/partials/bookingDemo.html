@@ -45,10 +45,10 @@ color: #0024ff
   <!-- <div class="row"> -->
     <div class="col-xs-2 col-sm-2 col-md-2 currencySelection">
       <select ng-model="fromType" class="form-control" required
-              data-ng-change="forExConvert()"
+              data-ng-change="forExConvert(fromType)"
               style="display: inline-block"
-              ng-options="k for (k, v) in rates track by v">
-      <option value="">--Select Currency (USD)--</option>
+              ng-options="key for (key, value) in rates track by value">
+        <option value="">--Select Currency (USD)--</option>
       </select>
     </div>
   <!-- </div> -->
@@ -65,7 +65,7 @@ color: #0024ff
 
                       <div class="">
                         <h5 ng-hide="fromType">Price: {{ room.room_price }} /Night </h5>
-                        <h5 ng-show="fromType">Price: {{ room.room_price * fromType | number: 2}} /Night </h5>
+                        <h5 ng-show="fromType">Price: {{ room.room_price * fromType | number: 2}} /Night ({{ currency }}) </h5>
                       </div>
 
                     <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#bookRoomModal" ng-click="bookRoom(room)">Book Room</button>
@@ -165,11 +165,13 @@ color: #0024ff
                         <p>{{ bookingInfo.guestInfo.checkOutDate| date }}</p>
                         <p ng-hide="fromType">{{ bookingInfo.ChampagneStrawberries.room_price }}
                         <p ng-show="fromType">{{ bookingInfo.ChampagneStrawberries.room_price * fromType | number: 2}}
-                            <a ng-if="bookingInfo.ChampagneStrawberries.room_price" href="" style="color:red" class="close" ng-click="remove()">x</a>
+                            <span ng-if="bookingInfo.ChampagneStrawberries.room_price"> ({{currency}})
+                            <a  href="" style="color:red" class="close" ng-click="remove()">x</a>
                             <button type="button" class="close" aria-label="Close" style="color:red" ng-click="remove()"></button>
+                            </span>
                         </p>
                         <p ng-hide="fromType">{{ bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price }} </p>
-                        <p ng-show="fromType">{{ fromType * (bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price ) | number: 2}} </p>
+                        <p ng-show="fromType">{{ fromType * (bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price ) | number: 2}} ({{ currency }})  </p>
 
                     </div>
 
@@ -228,7 +230,7 @@ color: #0024ff
                         <p>{{ bookingInfo.guestInfo.checkInDate | date }}</p>
                         <p>{{ bookingInfo.guestInfo.checkOutDate| date }}</p>
                         <p ng-hide="fromType">{{ (bookingInfo.roomInfo.room_price * ((bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000))+ bookingInfo.ChampagneStrawberries.room_price }} </p>
-                        <p ng-show="fromType">{{ fromType * (bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price ) | number: 2}} </p>
+                        <p ng-show="fromType">{{ fromType * (bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price ) | number: 2}} ({{ currency }}) </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Finish</button>
