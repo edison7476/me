@@ -2,6 +2,7 @@ order_app.controller('roomController', function($scope, $http) {
 
     $scope.today = new Date();
     $scope.rates= {};
+    $scope.currency = "USD";
     $http.get('http://api.fixer.io/latest?base=USD')
     .then(function(res){
     $scope.rates= res.data.rates;

@@ -48,7 +48,7 @@ color: #0024ff
               data-ng-change="forExConvert(fromType)"
               style="display: inline-block"
               ng-options="key for (key, value) in rates track by value">
-        <option value="">--Select Currency (USD)--</option>
+        <option value="">USD -- Select Currency --</option>
       </select>
     </div>
   <!-- </div> -->
@@ -64,7 +64,7 @@ color: #0024ff
                     <p class="long_desc">{{ room.long_desc }}</p>
 
                       <div class="">
-                        <h5 ng-hide="fromType">Price: {{ room.room_price }} /Night </h5>
+                        <h5 ng-hide="fromType">Price: {{ room.room_price }} /Night ({{ currency }}) </h5>
                         <h5 ng-show="fromType">Price: {{ room.room_price * fromType | number: 2}} /Night ({{ currency }}) </h5>
                       </div>
 
