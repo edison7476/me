@@ -131,7 +131,7 @@ color: #0024ff
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <button type="button" class="btn btn-warning pull-right" ng-click='confirmRoom(guest)' data-dismiss="modal" data-toggle="modal" data-target="#confirmationModal">Book</button>
+                                <button ng-hide="bookForm.$invalid" type="button" class="btn btn-warning pull-right" ng-click='confirmRoom(guest)' data-dismiss="modal" data-toggle="modal" data-target="#confirmationModal">Book</button>
                             </div>
                         </div>
                     </form>
@@ -165,13 +165,19 @@ color: #0024ff
                         <p>{{ bookingInfo.roomInfo.short_desc }}</p>
                         <p>{{ bookingInfo.guestInfo.checkInDate | date }}</p>
                         <p>{{ bookingInfo.guestInfo.checkOutDate| date }}</p>
-                        <p ng-hide="fromType">{{ bookingInfo.ChampagneStrawberries.room_price }}
-                        <p ng-show="fromType">{{ bookingInfo.ChampagneStrawberries.room_price * fromType | number: 2}}
-                            <span ng-if="bookingInfo.ChampagneStrawberries.room_price"> ({{currency}})
-                            <a  href="" style="color:red" class="close" ng-click="remove()">x</a>
-                            <button type="button" class="close" aria-label="Close" style="color:red" ng-click="remove()"></button>
-                            </span>
+                        <p ng-if="bookingInfo.ChampagneStrawberries.room_price">
+                          <span ng-hide="fromType">{{ bookingInfo.ChampagneStrawberries.room_price }} (USD)<a  href="" style="color:red" class="close" ng-click="remove()">x</a></span>
+                          <span ng-show="fromType">{{ bookingInfo.ChampagneStrawberries.room_price * fromType | number: 2}} ({{currency}})<a  href="" style="color:red" class="close" ng-click="remove()">x</a></span>
                         </p>
+                        <!-- <p ng-hide="fromType && bookingInfo.ChampagneStrawberries.room_price">{{ bookingInfo.ChampagneStrawberries.room_price }} USD </p>
+                        <p ng-show="fromType && bookingInfo.ChampagneStrawberries.room_price">{{ bookingInfo.ChampagneStrawberries.room_price * fromType | number: 2}} </p>
+                            <span ng-if="bookingInfo.ChampagneStrawberries.room_price"> ({{currency}})
+                              <a  href="" style="color:red" class="close" ng-click="remove()">x</a>
+                              <button type="button" class="close" aria-label="Close" style="color:red" ng-click="remove()"></button>
+                            </span> -->
+
+
+
                         <p ng-hide="fromType">{{ bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price }} (USD) </p>
                         <p ng-show="fromType">{{ fromType * (bookingInfo.roomInfo.room_price * ( (bookingInfo.guestInfo.checkOutDate - bookingInfo.guestInfo.checkInDate)/86400000 ) + bookingInfo.ChampagneStrawberries.room_price ) | number: 2}} ({{ currency }})  </p>
 
