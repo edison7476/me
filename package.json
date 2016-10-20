@@ -23,5 +23,8 @@
     "serve-favicon": "^2.3.0",
     "should": "^11.1.0",
     "socket.io": "~1.4.6"
+  },
+  "devDependencies": {
+    "angular-translate": "^2.12.1"
   }
 }
