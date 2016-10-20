@@ -85,9 +85,9 @@ color: #0024ff
                     <h4 class="modal-title" id="myModalLabel">Booking Information</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" name="bookForm">
+                    <form class="form-horizontal" name="bookForm" novalidate>
                         <!--  First Name -->
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{ 'has-error': bookForm.first_name.$invalid }">
                             <label for="title" class="col-sm-3 control-label">First Name:</label>
                             <div class="col-sm-9">
                                 <input type="text" name="first_name" class="form-control" placeholder="First Name" ng-model="guest.first_name" ng-minlength='2' required>
@@ -96,7 +96,7 @@ color: #0024ff
                             </div>
                         </div>
                         <!--  Last Name -->
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{ 'has-error': bookForm.last_name.$invalid }" >
                             <label for="title" class="col-sm-3 control-label">Last Name:</label>
                             <div class="col-sm-9">
                                 <input type="text" name="last_name" class="form-control" placeholder="Last Name" ng-model="guest.last_name" ng-minlength='2' required>
@@ -105,7 +105,7 @@ color: #0024ff
                             </div>
                         </div>
                         <!--  Email -->
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{ 'has-error': bookForm.email.$invalid }">
                             <label for="" class="col-sm-3 control-label">Email:</label>
                             <div class="col-sm-9">
                                 <input class="form-control" name="email" placeholder="Email" type="text" ng-model="guest.email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required>
@@ -114,17 +114,19 @@ color: #0024ff
                             </div>
                         </div><!--  End of Email section-->
 
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{ 'has-error': bookForm.date.$invalid }">
                           <label class="col-sm-3 control-label">Check-In Date: </label>
                           <div class="col-sm-9">
-                            <input class="form-control" type="date" name="date" ng-model="guest.checkInDate" min="{{ today | date:'yyyy-MM-dd'}}" >
+                            <input class="form-control" type="date" name="date" ng-model="guest.checkInDate" min="{{ today | date:'yyyy-MM-dd'}}" required>
+                            <span ng-show="bookForm.checkOutDate.$error.required" style="color:red">Please select the Check-Out date.</span>
                           </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{ 'has-error': bookForm.checkOutDate.$invalid }">
                           <label class="col-sm-3 control-label">Check-Out Date: </label>
                           <div class="col-sm-9">
-                            <input class="form-control" type="date" name="date" ng-model="guest.checkOutDate" min="{{ guest.checkOutMinDate | date:'yyyy-MM-dd'}}" ng-click="checkOut(guest)">
+                            <input class="form-control" type="date" name="checkOutDate" ng-model="guest.checkOutDate" min="{{ guest.checkOutMinDate | date:'yyyy-MM-dd'}}" ng-click="checkOut(guest)" required>
+                            <span ng-show="bookForm.checkOutDate.$error.min" style="color:red">The Check-Out date must be after the Check-In Date</span>
                           </div>
                         </div>
                         <div class="form-group">
@@ -140,7 +142,7 @@ color: #0024ff
     <!--  End of Guest Information Modal -->
 
     <!--  Booking Confirmation Modal -->
-    <div ng-controller="roomController" class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div ng-controller="roomController" class="modal fade upgradeModal" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
