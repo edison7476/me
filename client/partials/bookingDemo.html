@@ -118,7 +118,7 @@ color: #0024ff
                           <label class="col-sm-3 control-label">Check-In Date: </label>
                           <div class="col-sm-9">
                             <input class="form-control" type="date" name="date" ng-model="guest.checkInDate" min="{{ today | date:'yyyy-MM-dd'}}" required>
-                            <span ng-show="bookForm.checkOutDate.$error.required" style="color:red">Please select the Check-Out date.</span>
+                            <span ng-show=" bookForm.date.$touched && bookForm.date.$error.required" style="color:red">Please select the Check-Out date.</span>
                           </div>
                         </div>
 
