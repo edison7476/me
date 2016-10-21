@@ -118,7 +118,8 @@ color: #0024ff
                           <label class="col-sm-3 control-label">Check-In Date: </label>
                           <div class="col-sm-9">
                             <input class="form-control" type="date" name="date" ng-model="guest.checkInDate" min="{{ today | date:'yyyy-MM-dd'}}" required>
-                            <span ng-show=" bookForm.date.$touched && bookForm.date.$error.required" style="color:red">Please select the Check-Out date.</span>
+                            <span ng-show="bookForm.date.$touched && bookForm.date.$error.required" style="color:red">Please select the Check-Out date.</span>
+                            <span ng-show="bookForm.date.$error.min" style="color:red">Please enter a date on or after the current date.</span>
                           </div>
                         </div>
 
@@ -126,7 +127,7 @@ color: #0024ff
                           <label class="col-sm-3 control-label">Check-Out Date: </label>
                           <div class="col-sm-9">
                             <input class="form-control" type="date" name="checkOutDate" ng-model="guest.checkOutDate" min="{{ guest.checkOutMinDate | date:'yyyy-MM-dd'}}" ng-click="checkOut(guest)" required>
-                            <span ng-show="bookForm.checkOutDate.$error.min" style="color:red">The Check-Out date must be after the Check-In Date</span>
+                            <span ng-show="bookForm.checkOutDate.$error.min" style="color:red">The Check-Out date must be after the selected Check-In Date</span>
                           </div>
                         </div>
                         <div class="form-group">
