@@ -1,502 +1,471 @@
-
 <link rel="stylesheet" href="../stylesheet/expandable.css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="../stylesheet/CornerAnimatedShareButton.css" media="screen" title="no title" charset="utf-8">
 <style media="screen">
+  .topLeftRow {
+    background-image: url("../photos/taxi1.gif");
+    background-repeat: no-repeat;
 
-    .topLeftRow {
-        background-image: url("../photos/taxi1.gif");
-        background-repeat: no-repeat;
+    width: 32%;
+    height: 30%;
+    display: inline-block;
+  }
 
-        width: 32%;
-        height: 30%;
-        display: inline-block;
-    }
+  .topMiddle {
+    background-image: url("../photos/whine.gif");
+    background-repeat: no-repeat;
+    background-position: center 24%;
+    width: 33%;
+    height: 30%;
+    display: inline-block;
+  }
 
-    .topMiddle {
-        background-image: url("../photos/whine.gif");
-        background-repeat: no-repeat;
-        background-position: center 24%;
-        width: 33%;
-        height: 30%;
-        display: inline-block;
+  .topRightRow {
+    background-image: url("../photos/highhills.gif");
+    background-repeat: no-repeat;
+    background-position: center 27%;
+    width: 32%;
+    height: 30%;
+    display: inline-block;
+  }
 
-    }
-    .topRightRow {
-        background-image: url("../photos/highhills.gif");
-        background-repeat: no-repeat;
-        background-position: center 27%;
-        width: 32%;
-        height: 30%;
-        display: inline-block;
+  .imgCircle {
+    background: #fff;
+    box-shadow: inset 0px 0px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 2px solid rgba(0, 0, 0, 0.15);
+    transition: height .3s ease-in;
+    border-radius: 50%;
+    width: 210px;
+    height: 210px;
+  }
 
-    }
+  .img-circle {
+    border-radius: 50%;
+    display: inline-block;
+    max-width: 100%;
+  }
 
-    .imgCircle {
-        background: #fff;
-        box-shadow: inset 0px 0px 12px rgba(0, 0, 0, 0.15);
-        border-radius: 2px solid rgba(0, 0, 0, 0.15);
-        transition: height .3s ease-in;
-        border-radius: 50%;
-        width: 210px;
-        height: 210px;
-    }
-
-    .img-circle {
-        border-radius: 50%;
-        display: inline-block;
-        max-width: 100%;
-    }
-
-    .floatLeft {
-        float: left;
-    }
-    /*.nav__avatar img{
+  .floatLeft {
+    float: left;
+  }
+  /*.nav__avatar img{
     max-width: 100px;
     max-height: 100px;
   }*/
-
-    /*.table.tr.td {
+  /*.table.tr.td {
         justify-content: center;
     }*/
 
-.timeline {
-  list-style: none;
-  padding: 20px 0 20px;
-  position: relative;
-}
-.timeline:before {
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  content: " ";
-  width: 3px;
-  background-color: #eeeeee;
-  left: 50%;
-  margin-left: -1.5px;
-}
-.timeline > li {
-  margin-bottom: 20px;
-  position: relative;
-}
-.timeline > li:before,
-.timeline > li:after {
-  content: " ";
-  display: table;
-}
-.timeline > li:after {
-  clear: both;
-}
-.timeline > li:before,
-.timeline > li:after {
-  content: " ";
-  display: table;
-}
-.timeline > li:after {
-  clear: both;
-}
-.timeline > li > .timeline-panel {
-  width: 46%;
-  float: left;
-  border: 1px solid #d4d4d4;
-  border-radius: 2px;
-  padding: 20px;
-  position: relative;
-  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-}
-.timeline > li > .timeline-panel:before {
-  position: absolute;
-  top: 26px;
-  right: -15px;
-  display: inline-block;
-  border-top: 15px solid transparent;
-  border-left: 15px solid #ccc;
-  border-right: 0 solid #ccc;
-  border-bottom: 15px solid transparent;
-  content: " ";
-}
-.timeline > li > .timeline-panel:after {
-  position: absolute;
-  top: 27px;
-  right: -14px;
-  display: inline-block;
-  border-top: 14px solid transparent;
-  border-left: 14px solid #fff;
-  border-right: 0 solid #fff;
-  border-bottom: 14px solid transparent;
-  content: " ";
-}
-.timeline > li > .timeline-badge {
-  color: #fff;
-  width: 150px;
-  height: 150px;
-  line-height: 50px;
-  font-size: 1.4em;
-  text-align: center;
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  margin-left: -75px;
-  background-color: #999999;
-  z-index: 100;
-  border-top-right-radius: 50%;
-  border-top-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  border-bottom-left-radius: 50%;
-}
-.timeline > li.timeline-inverted > .timeline-panel {
-  float: right;
-}
-.timeline > li.timeline-inverted > .timeline-panel:before {
-  border-left-width: 0;
-  border-right-width: 15px;
-  left: -15px;
-  right: auto;
-}
-.timeline > li.timeline-inverted > .timeline-panel:after {
-  border-left-width: 0;
-  border-right-width: 14px;
-  left: -14px;
-  right: auto;
-}
-.timeline > div.timeline-inverted > .timeline-panel {
-  float: right;
-}
-.timeline > div.timeline-inverted > .timeline-panel:before {
-  border-left-width: 0;
-  border-right-width: 15px;
-  left: -15px;
-  right: auto;
-}
-.timeline > div.timeline-inverted > .timeline-panel:after {
-  border-left-width: 0;
-  border-right-width: 14px;
-  left: -14px;
-  right: auto;
-}
-.timeline-badge.primary {
-  background-color: #2e6da4 !important;
-}
-.timeline-badge.success {
-  background-color: #3f903f !important;
-}
-.timeline-badge.warning {
-  background-color: #f0ad4e !important;
-}
-.timeline-badge.danger {
-  background-color: #d9534f !important;
-}
-.timeline-badge.info {
-  background-color: #5bc0de !important;
-}
-.timeline-title {
-  margin-top: 0;
-  color: inherit;
-}
-.timeline-body > p,
-.timeline-body > ul {
-  margin-bottom: 0;
-}
-.timeline-body > p + p {
-  margin-top: 5px;
-}
-.languageIcon img {
+  .timeline {
+    list-style: none;
+    padding: 20px 0 20px;
+    position: relative;
+  }
+
+  .timeline:before {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 3px;
+    background-color: #eeeeee;
+    left: 50%;
+    margin-left: -1.5px;
+  }
+
+  .timeline>li {
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .timeline>li:before,
+  .timeline>li:after {
+    content: " ";
+    display: table;
+  }
+
+  .timeline>li:after {
+    clear: both;
+  }
+
+  .timeline>li:before,
+  .timeline>li:after {
+    content: " ";
+    display: table;
+  }
+
+  .timeline>li:after {
+    clear: both;
+  }
+
+  .timeline>li>.timeline-panel {
+    width: 46%;
+    float: left;
+    border: 1px solid #d4d4d4;
+    border-radius: 2px;
+    padding: 20px;
+    position: relative;
+    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  }
+
+  .timeline>li>.timeline-panel:before {
+    position: absolute;
+    top: 26px;
+    right: -15px;
+    display: inline-block;
+    border-top: 15px solid transparent;
+    border-left: 15px solid #ccc;
+    border-right: 0 solid #ccc;
+    border-bottom: 15px solid transparent;
+    content: " ";
+  }
+
+  .timeline>li>.timeline-panel:after {
+    position: absolute;
+    top: 27px;
+    right: -14px;
+    display: inline-block;
+    border-top: 14px solid transparent;
+    border-left: 14px solid #fff;
+    border-right: 0 solid #fff;
+    border-bottom: 14px solid transparent;
+    content: " ";
+  }
+
+  .timeline>li>.timeline-badge {
+    color: #fff;
+    width: 150px;
+    height: 150px;
+    line-height: 50px;
+    font-size: 1.4em;
+    text-align: center;
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    margin-left: -75px;
+    background-color: #999999;
+    z-index: 100;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+
+  .timeline>li.timeline-inverted>.timeline-panel {
+    float: right;
+  }
+
+  .timeline>li.timeline-inverted>.timeline-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+  }
+
+  .timeline>li.timeline-inverted>.timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+  }
+
+  .timeline>div.timeline-inverted>.timeline-panel {
+    float: right;
+  }
+
+  .timeline>div.timeline-inverted>.timeline-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+  }
+
+  .timeline>div.timeline-inverted>.timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+  }
+
+  .timeline-badge.primary {
+    background-color: #2e6da4 !important;
+  }
+
+  .timeline-badge.success {
+    background-color: #3f903f !important;
+  }
+
+  .timeline-badge.warning {
+    background-color: #f0ad4e !important;
+  }
+
+  .timeline-badge.danger {
+    background-color: #d9534f !important;
+  }
+
+  .timeline-badge.info {
+    background-color: #5bc0de !important;
+  }
+
+  .timeline-title {
+    margin-top: 0;
+    color: inherit;
+  }
+
+  .timeline-body>p,
+  .timeline-body>ul {
+    margin-bottom: 0;
+  }
+
+  .timeline-body>p+p {
+    margin-top: 5px;
+  }
+
+  .languageIcon img {
     height: 100px;
     width: 100px;
     margin-bottom: 10px;
     display: inline-block;
-}
-.timeline-heading, .timeline-body{
-  padding: +10px;
-}
-.timeline .timeline-inverted, .timeline .timeline-left{
-  margin-bottom:+75px;
-}
-.contentBox{
-  text-align: justify;
-  /*margin-left: auto;
-  margin-right: auto;*/
-  /*color: white;*/
-  background-color:  rgba(255, 255, 255, .4);
-  font-family: verdana;
-  padding: 3px;
-  border-radius: 10px
-}
-.contentBackground{
-  width: 60%;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  /*background-image: url("../photos/geometry2.jpg");*/
-  padding: 1px;
-  border-radius: 10px
-}
+  }
 
+  .timeline-heading,
+  .timeline-body {
+    padding: +10px;
+  }
+
+  .timeline .timeline-inverted,
+  .timeline .timeline-left {
+    margin-bottom: +75px;
+  }
+
+  .contentBox {
+    text-align: justify;
+    /*margin-left: auto;
+  margin-right: auto;*/
+    /*color: white;*/
+    background-color: rgba(255, 255, 255, .4);
+    font-family: verdana;
+    padding: 3px;
+    border-radius: 10px
+  }
+
+  .contentBackground {
+    width: 60%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-image: url("../photos/geometry2.jpg");*/
+    padding: 1px;
+    border-radius: 10px
+  }
 </style>
 
 
 <div class="row" style="padding-left:2%">
-            <div class="col-xs-6 col-sm-3 col-md-4 topLeftRow">
-                <!-- <img src="../photos/taxi1.gif" alt="" style="width:45%; height:30%" /> -->
-            </div>
-            <div class="col-xs-6 col-sm-3 col-md-4 topMiddle">
-                  <!-- <img src="../photos/taxi1.gif" alt="" style="width:45%; height:30%" /> -->
-              </div>
+  <div class="col-xs-6 col-sm-3 col-md-4 topLeftRow">
+    <!-- <img src="../photos/taxi1.gif" alt="" style="width:45%; height:30%" /> -->
+  </div>
+  <div class="col-xs-6 col-sm-3 col-md-4 topMiddle">
+    <!-- <img src="../photos/taxi1.gif" alt="" style="width:45%; height:30%" /> -->
+  </div>
 
-            <div class="col-xs-6 col-sm-3 col-md-4 topRightRow">
-                <!-- <img src="../photos/buble.gif" alt=""  style="width:45%;  height:30%"/> -->
-            </div>
+  <div class="col-xs-6 col-sm-3 col-md-4 topRightRow">
+    <!-- <img src="../photos/buble.gif" alt=""  style="width:45%;  height:30%"/> -->
+  </div>
 </div>
 
-<div style="padding: 0 40px" >
-    <div class="page-header" style="text-align: center">
+<div style="padding: 0 40px">
+  <div class="page-header" style="text-align: center">
 
-        <div class="timeline-badge" >
-          <img style="border-radius: 100px" src="../photos/edison.jpg" alt="" />
-        </div>
-        <div class="contentBackground">
-          <p class="contentBox" style="font-size: 130%">
-            Hello, my name is Edison Wang. I am a responsible, team-oriented and highly energetic full-stack developer who is passionate in building both front-end and back-end applications and developing algorithms.
-            As a quick learner with a strong work ethic and exceptional quantitative and analytic skills,
-            I am capable to constantly provide the fuel of motivation to meet challenges along with a positive attitude,
-            tackle problems efficiently, and deliver best possible user-experience.
-          </p>
-        </div>
-
-      <em><p style="font-family: cursive; font-size:140%";> "Failure will never overtake me if my determination to succeed is strong enough." </em>
-        - Og Mandino
+    <div class="timeline-badge">
+      <img style="border-radius: 100px" src="../photos/edison.jpg" alt="" />
+    </div>
+    <div class="contentBackground">
+      <p class="contentBox" style="font-size: 130%">
+        Hello, my name is Edison Wang. I am a responsible, team-oriented and highly energetic full-stack developer who is passionate
+        in building both front-end and back-end applications and developing algorithms. As a quick learner with a strong
+        work ethic and exceptional quantitative and analytic skills, I am capable to constantly provide the fuel of motivation
+        to meet challenges along with a positive attitude, tackle problems efficiently, and deliver best possible user-experience.
       </p>
-
-        <h1 id="timeline">About Me</h1>
     </div>
 
-    <ul class="timeline">
-      <!--  Coding dojo-->
-        <li class="timeline-left">
-          <div class="timeline-badge" >
-            <i>
-            <img class="img-circle" src="../photos/codingdojo2Icon.png" alt="Generic placeholder image">
-          </i></div>
+    <em><p style="font-family: cursive; font-size:140%";> "Failure will never overtake me if my determination to succeed is strong enough." </em>    - Og Mandino
+    </p>
 
-          <!-- <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Coding Dojo</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>
-                Computer Software
-              </small></p>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div> -->
-          <div class=" timeline-panel" style="padding:0; border-radius:10px; ">
-                  <nav class="nav2" style="width:100%">
-                      <input type="checkbox" id="menu-button-codingdojo2" class="menu-button__input"  />
-                      <label for="menu-button-codingdojo2" class="menu-button" >
+    <h1 id="timeline">About Me</h1>
+  </div>
+
+  <ul class="timeline">
+    <!--  Coding dojo-->
+    <li class="timeline-left">
+      <div class="timeline-badge">
+        <i>
+              <img class="img-circle" src="../photos/codingdojo2Icon.png" alt="Generic placeholder image">
+            </i>
+      </div>
+      <div class=" timeline-panel" style="padding:0; border-radius:10px; ">
+        <nav class="nav2" style="width:100%">
+          <input type="checkbox" id="menu-button-codingdojo2" class="menu-button__input" />
+          <label for="menu-button-codingdojo2" class="menu-button">
                           <span class="menu-button__icon" >
                             <span class="menu-button__icon-strip" ></span>
                           </span>
                       </label>
-                      <div class="nav__inner" style="border-radius:10px; width:100% ">
-                        <div class="timeline-heading">
+          <div class="nav__inner" style="border-radius:10px; width:100% ">
+            <div class="timeline-heading">
 
-                          <h3 class="timeline-title">EDUCATION</h3>
-                          <h4>May 2016 - Aug 2016</h4>
-                          <h4>Coding Dojo</h4>
-                          <h4><em>Computer Software Engineering</em></h4>
-                          <ul class="nav-list">
-                              <!-- <img src="../photos/berkeleyIcon.png" alt="" style="margin-bottom:5px;">  -->
-                          <h4 class="nav-list__item">
-                            14-week intensive, rigorous and comprehensive full-stack software development training programs to meet the career goals of both aspiring developers and industry veterans. Students are expected to spend, on average, a minimum of 80 hours per week during the program. Upon completion of the program,
-                            I mastered the web fundamental and software development from client side to database in Python, MEAN stack, and iOS.
+              <h3 class="timeline-title">WORK EXPERIENCE</h3>
+              <h4>Nov 2016 - Aug 2017</h4>
+              <h4>DICE</h4>
+              <h4><em>UI Engineer</em></h4>
+              <ul class="nav-list">
+                <h4 class="nav-list__item">
+                  <li class="nav-list__item">
+                      Application development using Javascript (ES6), Typescript, and AngularJS following component based and modular architecture.
+                  </li>
+                  <li class="nav-list__item">
+                      Worked closely and collaborated with UX designers and Product team to scope, prototype, and implement new features for clients with the best possible user-experience.
+                  </li>
+                  <li class="nav-list__item">
+                      Developed and designed reusable Angular UI components/front-end services/modules for future scalability, reusability, and manageability. 
+                  </li>
+                  <li class="nav-list__item">
+                      Built interactive dynamic charts with JSON data using Highcharts.
+                  </li>
+                </h4>
+              </ul>
+            </div>
+        </nav>
+        </div>
+    </li>
 
-                          </h4>
-                          <h4 class="nav-list__item">Python, Falsk, Javascript, Angular.js, Node.Js, Express.Js</h4>
-                          <h4 class="nav-list__item">Xcode, Swift, jQuery, HTML, CSS</h4>
-                          <h4 class="nav-list__item">MySQL, MongoDB</h4>
-                              <br>
-                              <a style="float:right; margin-bottom:10px; font-size:120%"class="nav-list__item" href="#/projects">Check My Projects</a>
-                              <br>
 
-                          </ul>
-                      </div>
-                  </nav>
-              </div>
-        </li>
-
-
-<!--  Berkley-->
-        <li class="timeline-inverted">
-          <div class="timeline-badge warning">
-            <i>
+    <!--  Berkley-->
+    <li class="timeline-inverted">
+      <div class="timeline-badge warning">
+        <i>
             <img class="img-circle" src="../photos/berkeleyIcon.png" alt="Generic placeholder image">
           </i></div>
-          <!-- <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">University of California, Berkeley</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>
-                Bachelor, Applied Mathematics
-              </small></p>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-              <p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.</p>
-            </div>
-          </div> -->
-          <div class=" timeline-panel" style="padding:0; border-radius:10px; ">
-                  <nav class="nav2" style="width:100%">
-                      <input type="checkbox" id="menu-button-UCB2" class="menu-button__input" />
-                      <label for="menu-button-UCB2" class="menu-button">
+      <div class=" timeline-panel" style="padding:0; border-radius:10px; ">
+        <nav class="nav2" style="width:100%">
+          <input type="checkbox" id="menu-button-UCB2" class="menu-button__input" />
+          <label for="menu-button-UCB2" class="menu-button">
                           <span class="menu-button__icon">
                               <span class="menu-button__icon-strip"></span>
                           </span>
                       </label>
-                      <div class="nav__inner" style="border-radius:10px; width:100%; ">
-                        <div class="timeline-heading">
-                          <h3 class="timeline-title">EDUCATION</h3>
-                          <h4>Aug 2014 - May 2016</h4>
-                          <h4>University of California, Berkeley  </h4>
-                          <h4><em>Bachelor, Applied Mathematics</em></h4>
-                          <!-- <h4 class="timeline-title">University of California, Berkeley  </h4>
-                          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>
-                            Bachelor, Applied Mathematics
-                          </small></p>
-                          <h5>Aug 2014 - May 2016</h5> -->
-                          <ul class="nav-list">
-                            <h4 class="nav-list__item">
-                              <br>
+          <div class="nav__inner" style="border-radius:10px; width:100%; ">
+            <div class="timeline-heading">
+              <h3 class="timeline-title">EDUCATION</h3>
+              <h4>Aug 2014 - May 2016</h4>
+              <h4>University of California, Berkeley </h4>
+              <h4><em>Bachelor, Applied Mathematics</em></h4>
+              <ul class="nav-list">
+                <h4 class="nav-list__item">
+                  <br>
 
-                              <strong class="nav-list__item">Stock Pitch Group Project</strong>
-                              <!-- <li>Created an Excel VBA program to examine RMBS model results with thousands of observations.</li> -->
-                              <li class="nav-list__item">Evaluated potentially investable companies' fundamentals and performance by scrutinizing financial statements and analyzing business plans.</li>
-                              <li class="nav-list__item">Projected the future earnings and operating expenses over the next 3 years by building a financial model.</li>
-                              <br>
+                  <strong class="nav-list__item">Stock Pitch Group Project</strong>
+                  <li class="nav-list__item">Evaluated potentially investable companies' fundamentals and performance by scrutinizing financial statements
+                    and analyzing business plans.</li>
+                  <li class="nav-list__item">Projected the future earnings and operating expenses over the next 3 years by building a financial model.</li>
+                  <br>
 
-                              <strong class="nav-list__item">Individual Stock Portfolio Competition </strong>
-                              <p class="nav-list__item"><em >- The First Place in a class of 90 students</em></p>
-                              <li class="nav-list__item">Managed unsystematic risk by combing negatively correlated stocks in the portfolio.&nbsp;</li>
-                              <li class="nav-list__item">Protected against systematic risk by constructing market neutral portfolio.&nbsp;</li>
-                              <br>
-
-                              <!-- <strong class="nav-list__item">Financial Statement Analysis</strong>
-
-                              <li class="nav-list__item">Analyzed balance sheets, income statements, and cash flow statements to determine business performance and understand the inflow and outflow of funds.</li>
-                              <li class="nav-list__item">Analyzed companies' financial health and profit efficiency by calculating the financial ratios.</li> -->
-                            </h4>
-                          </ul>
-                      </div>
-                        </div>
-                  </nav>
+                  <strong class="nav-list__item">Individual Stock Portfolio Competition </strong>
+                  <p class="nav-list__item"><em>- The First Place in a class of 90 students</em></p>
+                  <li class="nav-list__item">Managed unsystematic risk by combing negatively correlated stocks in the portfolio.&nbsp;</li>
+                  <li class="nav-list__item">Protected against systematic risk by constructing market neutral portfolio.&nbsp;</li>
+                  <br>
+                </h4>
+              </ul>
             </div>
-        </li>
+          </div>
+        </nav>
+      </div>
+    </li>
 
-
-<!--  Econ One Research-->
-        <li class="timeline-left">
-          <div class="timeline-badge danger" >
-            <i >
+    <!--  Econ One Research-->
+    <li class="timeline-left">
+      <div class="timeline-badge danger">
+        <i>
             <img class="img-circle" src="../photos/e1Icon.png" alt="Generic placeholder image" style="max-width:90%; height:80%; border-radius:20px; margin-top:8% ;" >
           </i>
-        </div>
-          <div class="timeline-panel" style="padding:0; border-radius:10px;">
-            <nav class="nav2" style="width:100%">
-                <input type="checkbox" id="menu-button-EconOne" class="menu-button__input" />
-                <label for="menu-button-EconOne" class="menu-button">
+      </div>
+      <div class="timeline-panel" style="padding:0; border-radius:10px;">
+        <nav class="nav2" style="width:100%">
+          <input type="checkbox" id="menu-button-EconOne" class="menu-button__input" />
+          <label for="menu-button-EconOne" class="menu-button">
                     <span class="menu-button__icon">
                         <span class="menu-button__icon-strip"></span>
                     </span>
                 </label>
-                <div class="nav__inner" style="border-radius:10px; width:100% ">
-                  <div class="timeline-heading">
-                    <h3 class="timeline-title">WORK EXPERIENCE</h4>
-                    <h4>May 2015 - Dec 2015</h4>
-                    <h4>Econ One Research</h4>
-                    <h4><em>Intern</em></h4>
-                    <!-- <h4 class="timeline-title">Econ One Research</h4>
-                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>
-                      Intern
-                    </small></p>
-                    <h5>May 2015 - Dec 2015</h5> -->
-                    <ul class="nav-list">
-                      <h4 class="nav-list__item">
-                        <!-- <img src="../photos/berkeleyIcon.png" alt="" style="margin-bottom:5px;">  -->
-                        <li class="nav-list__item">Coded nested loops with control flow in Excel VBA to analyze 300,000+ inputs in RMBS models and record modeled results.</li>
-                        <!-- <li>Created an Excel VBA program to examine RMBS model results with thousands of observations.</li> -->
-                        <li class="nav-list__item">Created an Excel VBA program to examine 300,000+ RMBS modeled results.</li>
-                        <li class="nav-list__item">Assisted in the production of expert reports, primarily through the generation of exhibits and appendices to synthesize complex sets of information.&nbsp;</li>
-                        <li class="nav-list__item">Aggregated numerous disparate data sources into standardized data set.&nbsp;</li>
-                      </h4>
-                    </ul>
-                </div>
-                </div>
-            </nav>
-          </div>
-        </li>
-<!--  ###### -->
-
-
-
-        <!-- <li class="timeline-inverted">
-          <div class="timeline-panel">
+          <div class="nav__inner" style="border-radius:10px; width:100% ">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+              <h3 class="timeline-title">WORK EXPERIENCE</h4>
+                <h4>May 2015 - Dec 2015</h4>
+                <h4>Econ One Research</h4>
+                <h4><em>Intern</em></h4>
+                <ul class="nav-list">
+                  <h4 class="nav-list__item">
+                    <li class="nav-list__item">Coded nested loops with control flow in Excel VBA to analyze 300,000+ inputs in RMBS models and record
+                      modeled results.</li>
+                    <li class="nav-list__item">Created an Excel VBA program to examine 300,000+ RMBS modeled results.</li>
+                    <li class="nav-list__item">Assisted in the production of expert reports, primarily through the generation of exhibits and appendices
+                      to synthesize complex sets of information.&nbsp;</li>
+                    <li class="nav-list__item">Aggregated numerous disparate data sources into standardized data set.&nbsp;</li>
+                  </h4>
+                </ul>
             </div>
           </div>
-        </li> -->
-
-<!--  Berkeley Academy-->
-        <li class="timeline-inverted">
-          <div class="timeline-badge info">
-            <i>
+        </nav>
+      </div>
+    </li>
+    <!--  ###### -->
+    <!--  Berkeley Academy-->
+    <li class="timeline-inverted">
+      <div class="timeline-badge info">
+        <i>
             <img class="img-circle" src="../photos/berkeleyAcademyIcon.png" alt="Generic placeholder image" style="height: 98%; width:96%; ">
           </i></div>
-          <div class="timeline-panel" style="padding:0; border-radius:10px;">
-            <nav class="nav2" style="width:100%">
-                <input type="checkbox" id="menu-button-berkeleyAcademy1" class="menu-button__input" />
-                <label for="menu-button-berkeleyAcademy1" class="menu-button">
+      <div class="timeline-panel" style="padding:0; border-radius:10px;">
+        <nav class="nav2" style="width:100%">
+          <input type="checkbox" id="menu-button-berkeleyAcademy1" class="menu-button__input" />
+          <label for="menu-button-berkeleyAcademy1" class="menu-button">
                     <span class="menu-button__icon">
                         <span class="menu-button__icon-strip"></span>
                     </span>
                 </label>
-                <div class="nav__inner" style="border-radius:10px; width:100% ">
-                  <div class="timeline-heading">
-                    <h3 class="timeline-title">WORK EXPERIENCE</h3>
-                    <h4>Apr 2012 - Nov 2014</h4>
-                    <h4>Berkeley Academy</h4>
-                    <h4><em>Mathematics Tutor</em></h4>
-                    <!-- <h4 class="timeline-title">Berkeley Academy</h4>
-                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>
-                      Math Instructor
-                    </small></p>
-                    <h5>Apr 2012 - Nov 2014</h5> -->
-                    <ul class="nav-list">
-                      <h4 class="nav-list__item">
-                        <li class="nav-list__item">Assisted 30% of students to raise their grades 1 to 2 letter grades by working with students in Algebra II, Trigonometry, Pre-Calculus, and Calculus individually or in groups.</li>
-                        <li class="nav-list__item">Build relationship with clients by offering services that address their individual needs.</li>
-                      </h4>
-                    </ul>
-                </div>
-            </nav>
-          </div>
-        </li>
+          <div class="nav__inner" style="border-radius:10px; width:100% ">
+            <div class="timeline-heading">
+              <h3 class="timeline-title">WORK EXPERIENCE</h3>
+              <h4>Apr 2012 - Nov 2014</h4>
+              <h4>Berkeley Academy</h4>
+              <h4><em>Mathematics Tutor</em></h4>
+              <ul class="nav-list">
+                <h4 class="nav-list__item">
+                  <li class="nav-list__item">Assisted 30% of students to raise their grades 1 to 2 letter grades by working with students in Algebra
+                    II, Trigonometry, Pre-Calculus, and Calculus individually or in groups.</li>
+                  <li class="nav-list__item">Build relationship with clients by offering services that address their individual needs.</li>
+                </h4>
+              </ul>
+            </div>
+        </nav>
+        </div>
+    </li>
 
-<!--  personal skills-->
-        <li>
-          <div class="timeline-badge danger">
-            <i>
+    <!--  personal skills-->
+    <li>
+      <div class="timeline-badge danger">
+        <i>
             <img class="img-circle" src="../photos/personalSkills.png" alt="Generic placeholder image">
           </i>
+      </div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h3 class="timeline-title">PERSONAL SKILLS</h3>
         </div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h3 class="timeline-title">PERSONAL SKILLS</h3>
-            </div>
-            <div class="timeline-body" style="margin-top: -20px">
-              <ul class="nav-list">
-              <h4>
+        <div class="timeline-body" style="margin-top: -20px">
+          <ul class="nav-list">
+            <h4>
               <li>Exceptional analytical skills with the talent to pinpoint solutions for issues.</li>
               <li>Results-driven achiever with planning and organizational skills, along with extreme detail orientation.</li>
               <li>Productive worker with solid work ethic who exerts best effort in completing duties successfully.&nbsp;</li>
@@ -504,117 +473,58 @@
               <li>Fluent in Chinese Mandarin.</li>
             </h4>
           </ul>
-            </div>
-          </div>
-        </li>
+        </div>
+      </div>
+    </li>
 
-
-        <li class="timeline-inverted">
-          <div class="timeline-badge success">
-            <i>
+    <li class="timeline-inverted">
+      <div class="timeline-badge success">
+        <i>
             <img class="img-circle" src="../photos/codeIcon2.jpeg" alt="Generic placeholder image">
           </i>
-          </div>
-          <div class="timeline-panel">
-            <div class="timeline-heading" >
-              <h3 class="timeline-title">TECHNICAL SKILLS</h3>
-            </div>
-            <div class="timeline-body languageIcon" style="margin-top: 0px">
-              <img src="../photos/pythonIcon.jpeg" alt="" />
-              <img src="../photos/flaskIcon.jpeg" alt="" />
-              <img src="../photos/mySQLIcon.png" alt="" />
-              <img src="../photos/jsIcon2.png" alt="" />
-              <img src="../photos/cssIcon.jpeg" alt="" />
-              <img src="../photos/html1.png" alt="" />
-              <img src="../photos/nodeIcon.png" alt="" />
-              <img src="../photos/angularIcon.png" alt="" />
-              <img src="../photos/mongoIcon.jpeg" alt="" />
-              <img src="../photos/expressIcon.png" alt="" />
-              <!-- <img src="../photos/socketioIcon.jpeg" alt="" /> -->
-              <img src="../photos/jQueryIcon.png" alt="" />
-              <img src="../photos/swiftIcon.jpeg" alt="" />
-              <img src="../photos/xcodeIcon.png" alt="" />
-              <img src="../photos/bootstrapIcon.jpeg" alt="" />
-            </div>
-          </div>
-        </li>
-    </ul>
-</div>
-
-
-    <!-- BA -->
-    <!-- <div class="col-lg-4">
-        <img class="img-circle" src="../photos/berkeleyAcademyIcon.png" alt="Generic placeholder image">
-    </div> -->
-
-    <!--  math instructor -->
-    <!-- <h1 class="pen-title">Work Experience</h1>
-    <div class="pen-wrapper">
-        <div class="pen-wrapper__inner">
-            <nav class="nav" style="bottom:0px">
-                <input type="checkbox" id="menu-button2" class="menu-button__input" />
-                <label for="menu-button2" class="menu-button">
-                    <span class="menu-button__icon">
-                          <span class="menu-button__icon-strip"></span>
-                    </span>
-                </label>
-                <div class="nav__inner" style="border-radius:10px; ">
-                    <h5>Apr 2012 - Nov 2014</h5>
-                    <h5>Berkeley Academy</h5>
-                    <h5>Math Instructor</h5>
-                    <ul class="nav-list">
-                        <li class="nav-list__item">Assisted 30% of students to raise their grades 1 to 2 letter grades by working with students in Algebra II, Trigonometry, Pre-Calculus, and Calculus individually or in groups.</li>
-                        <li class="nav-list__item">Build relationship with clients by offering services that address their individual needs.</li>
-                    </ul>
-                </div>
-            </nav>
+      </div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h3 class="timeline-title">TECHNICAL SKILLS</h3>
         </div>
-    </div> -->
-
-    <div id='ss_menu'>
-
-      <div>
-        <i class="fa fa-linkedin"><a href="https://www.linkedin.com/in/edison-wang-funcoding"><img src="../photos/in2.png" style="max-width:95%; max-height:95%"/></a></i>
-      </div>
-      <div>
-        <i class="fa fa-twitter"><a href="#/contact"><img src="../photos/email1.png" style="max-width:95%; max-height:97%"/></a></i>
-      </div>
-      <div>
-        <i class="fa fa-pinterest"><a href="https://github.com/edison7476"><img src="../photos/githubIcon4.png" style="max-width:95%; max-height:95%; "/></a></i></i>
-      </div>
-      <div>
-        <i class="fa fa-dribbble"><a href="#/resume"><img src="../photos/resumeIcon.png" style="max-width:95%; max-height:95%; "/></a></i>
-      </div>
-      <div class='menu'>
-        <div class='share' id='ss_toggle' data-rot='180'>
-          <div class='circle'></div>
-          <div class='bar'></div>
+        <div class="timeline-body languageIcon" style="margin-top: 0px">
+          <img src="../photos/pythonIcon.jpeg" alt="" />
+          <img src="../photos/flaskIcon.jpeg" alt="" />
+          <img src="../photos/mySQLIcon.png" alt="" />
+          <img src="../photos/jsIcon2.png" alt="" />
+          <img src="../photos/cssIcon.jpeg" alt="" />
+          <img src="../photos/html1.png" alt="" />
+          <img src="../photos/nodeIcon.png" alt="" />
+          <img src="../photos/angularIcon.png" alt="" />
+          <img src="../photos/mongoIcon.jpeg" alt="" />
+          <img src="../photos/expressIcon.png" alt="" />
+          <img src="../photos/jQueryIcon.png" alt="" />
+          <img src="../photos/swiftIcon.jpeg" alt="" />
+          <img src="../photos/xcodeIcon.png" alt="" />
+          <img src="../photos/bootstrapIcon.jpeg" alt="" />
         </div>
+      </div>
+    </li>
+  </ul>
+  </div>
+
+  <div id='ss_menu'>\
+    <div>
+      <i class="fa fa-linkedin"><a href="https://www.linkedin.com/in/edison-wang-funcoding"><img src="../photos/in2.png" style="max-width:95%; max-height:95%"/></a></i>
+    </div>
+    <div>
+      <i class="fa fa-twitter"><a href="#/contact"><img src="../photos/email1.png" style="max-width:95%; max-height:97%"/></a></i>
+    </div>
+    <div>
+      <i class="fa fa-pinterest"><a href="https://github.com/edison7476"><img src="../photos/githubIcon4.png" style="max-width:95%; max-height:95%; "/></a></i></i>
+    </div>
+    <div>
+      <i class="fa fa-dribbble"><a href="#/resume"><img src="../photos/resumeIcon.png" style="max-width:95%; max-height:95%; "/></a></i>
+    </div>
+    <div class='menu'>
+      <div class='share' id='ss_toggle' data-rot='180'>
+        <div class='circle'></div>
+        <div class='bar'></div>
       </div>
     </div>
-
-
-
-
-
-    <!--
-<svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-    <symbol id="icon-star" viewBox="0 0 951 1024">
-      <title>star</title>
-      <path class="path1" d="M950.857 369.714q0 12.571-14.857 27.429l-207.429 202.286 49.143 285.714q0.571 4 0.571 11.429 0 12-6 20.286t-17.429 8.286q-10.857 0-22.857-6.857l-256.571-134.857-256.571 134.857q-12.571 6.857-22.857 6.857-12 0-18-8.286t-6-20.286q0-3.429 1.143-11.429l49.143-285.714-208-202.286q-14.286-15.429-14.286-27.429 0-21.143 32-26.286l286.857-41.714 128.571-260q10.857-23.429 28-23.429t28 23.429l128.571 260 286.857 41.714q32 5.143 32 26.286z"></path>
-    </symbol>
-    <symbol id="icon-envelope" viewBox="0 0 1024 1024">
-      <title>envelope</title>
-      <path class="path1" d="M512.48 603.552l-130.304-106.976-283.584 334.816h828.032l-283.616-338.144-130.528 110.304zM957.632 192.608h-890.080l445.056 374.336 445.024-374.336zM662.56 476.384l297.312 354.688v-606.464l-297.312 251.776zM64.128 224.608v606.464l297.312-354.688-297.312-251.776z"></path>
-    </symbol>
-    <symbol id="icon-cog" viewBox="0 0 1024 1024">
-      <title>cog</title>
-      <path class="path1" d="M863.68 595.68c68.992 51.424 128.128 98.496 128.128 98.496l-84.192 147.648-152.16-67.168-140.992 82.464c-9.536 86.944-18.272 166.88-18.272 166.88h-168.384l-18.688-167.392-138.944-82.656-153.824 67.904-84.16-147.648c0 0 58.144-46.848 126.976-98.112v-168.288l-126.976-97.92 84.16-147.68 150.144 66.816 149.056-80.864 12.256-168.16h168.384l12.192 167.456 147.008 82.496 152.256-67.776 84.192 147.68-128.128 98.272v167.552zM512 384c-70.688 0-128 57.312-128 128s57.312 128 128 128 128-57.312 128-128-57.312-128-128-128z"></path>
-    </symbol>
-    <symbol id="icon-user" viewBox="0 0 1024 1024">
-      <title>user</title>
-      <path class="path1" d="M0 1024v-96c0-143.488 180.768-197.728 419.168-219.584-52.352-32.448-93.44-123.648-114.848-196.48-0.096 0-0.192 0.064-0.32 0.064-2.176 0-48-57.312-48-128 0-62.016-4.416-113.728 32.224-125.44-0.032-0.864-0.224-1.696-0.224-2.56 0-78.624 40.672-147.52 101.984-187.488 15.84-39.52 64.128-68.512 122.016-68.512s106.176 28.992 122.016 68.512c61.312 39.968 101.984 108.864 101.984 187.488 0 0.864-0.192 1.696-0.224 2.56 36.64 11.712 32.224 63.424 32.224 125.44 0 70.688-50.816 128-48 128-0.128 0-0.224-0.064-0.32-0.064-21.408 72.8-62.496 164.032-114.848 196.48 238.4 21.856 419.168 74.080 419.168 219.584v96h-1024z"></path>
-    </symbol>
-  </defs>
-</svg> -->
+  </div>

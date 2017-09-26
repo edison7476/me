@@ -76,6 +76,7 @@ $green-d: darken($green, 15%);
 .back-face {
   background-color: $green;
   color: $green-d;
+  
   @include transform(rotateX(-90deg)translateZ(2.25em));
   &:before {
     @include background-image(linear-gradient(45deg, $green-d 0%, #76bc42 50%, #7dbd4c 50%, $green));
